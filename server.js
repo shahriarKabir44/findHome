@@ -25,6 +25,8 @@ function startExpress() {
 
     app.use('/user', require('./routers/User.router'))
     app.use('/property', require('./routers/Property.router'))
+    app.use('/notification', require('./routers/Notification.router'))
+
     app.listen(process.env.PORT || 4000)
 
 }
