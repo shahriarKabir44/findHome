@@ -24,7 +24,7 @@ function startExpress() {
     let app = express()
 
     app.use('/user', require('./routers/User.router'))
-
+    app.use('/property', require('./routers/Property.router'))
     app.listen(process.env.PORT || 4000)
 
 }
