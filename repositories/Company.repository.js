@@ -56,4 +56,19 @@ module.exports = class CompanyRepository {
         let token = jwt.sign(company, process.env.jwtSecret)
         return { company, token }
     }
+    static async getCompanyList({ pageNumber }) {
+        return promisify({
+            sql: `select id, name, location, image, phoneNumbers, email
+                 from company limit ?,5;`,
+            values: [pageNumber]
+        })
+    }
+    static async searchById({ id }) {
+        let [company] = await promisify({
+            sql: `select * from company where id = ?;`,
+            values: [id]
+        })
+        company.password = null
+        return company
+    }
 }
