@@ -1,5 +1,5 @@
 const promisify = require('../utils/promisify')
-const queryBuilder = require('../utils/queryBuilder')
+const { createInsertQuery } = require('../utils/queryBuilder')
 const jwt = require('jsonwebtoken')
 module.exports = class UserRepository {
     static async findUser({ id }) {
@@ -12,7 +12,7 @@ module.exports = class UserRepository {
     }
     static async register({ name, email, phone, nationality, gender, occupation, password }) {
         await promisify({
-            sql: queryBuilder('user', ['name', 'email', 'phone', 'nationality', 'gender', 'occupation', 'password']),
+            sql: createInsertQuery('user', ['name', 'email', 'phone', 'nationality', 'gender', 'occupation', 'password']),
             values: [name, email, phone, nationality, gender, occupation, password]
         })
         let [id] = await promisify({
