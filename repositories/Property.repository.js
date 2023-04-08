@@ -27,7 +27,7 @@ module.exports = class PropertyRepository {
         })
         return property
     }
-    static async update({ id, location, price, images }) {
+    static async update({ id, location, price, images, newOwner }) {
         let fields = []
         let fieldNames = []
         if (location) {
@@ -42,9 +42,14 @@ module.exports = class PropertyRepository {
             fields.push(images)
             fieldNames.push('images')
         }
+        if (newOwner) {
+            fields.push(newOwner)
+            fieldNames.push('newOwner')
+        }
         promisify({
             sql: `${createUpdateQuery('property', fieldNames)} where id=?;`,
             values: [id, ...fields]
         })
     }
+
 }
