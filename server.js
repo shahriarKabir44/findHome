@@ -30,6 +30,7 @@ function startExpress() {
     app.use('/notification', require('./routers/Notification.router'))
     app.use('/company', require('./routers/Company.router'))
     app.use('/admin', require('./routers/Admin.router'))
+    app.use('/offer', require('./routers/offer.router'))
     app.listen(process.env.PORT || 4000)
 
 }
