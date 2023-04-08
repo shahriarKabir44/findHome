@@ -7,7 +7,7 @@ module.exports = class PropertyRepository {
             sql: createInsertQuery('property', ['sellerId', 'location', 'price']),
             values: [sellerId, location, price]
         })
-        let [id] = await promisify({
+        let [{ id }] = await promisify({
             sql: `select max(id) as id from property
                 where sellerId=?;`,
             values: [sellerId]
@@ -44,7 +44,7 @@ module.exports = class PropertyRepository {
         }
         promisify({
             sql: `${createUpdateQuery('property', fieldNames)} where id=?;`,
-            values: fields
+            values: [id, ...fields]
         })
     }
 }

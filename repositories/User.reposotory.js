@@ -15,7 +15,7 @@ module.exports = class UserRepository {
             sql: createInsertQuery('user', ['name', 'email', 'phone', 'nationality', 'gender', 'occupation', 'password']),
             values: [name, email, phone, nationality, gender, occupation, password]
         })
-        let [id] = await promisify({
+        let [{ id }] = await promisify({
             sql: `select id
                 from user where email=?;`,
             values: [email]
