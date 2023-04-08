@@ -15,12 +15,12 @@ module.exports = class UserRepository {
             sql: queryBuilder('user', ['name', 'email', 'phone', 'nationality', 'gender', 'occupation', 'password']),
             values: [name, email, phone, nationality, gender, occupation, password]
         })
-        let [user] = await promisify({
+        let [id] = await promisify({
             sql: `select id
                 from user where email=?;`,
             values: [email]
         })
-        return user
+        return id
     }
     static async setProfileImage({ id, profileImageURL }) {
         promisify({
@@ -30,7 +30,7 @@ module.exports = class UserRepository {
     }
     static async authenticateUser({ email, password }) {
         let [user] = await promisify({
-            sql: `select id
+            sql: `select id,name,email, phone, nationality,gender, occupation, profileImageURL
                 from user where email=?,password=?;`,
             values: [email, password]
         })

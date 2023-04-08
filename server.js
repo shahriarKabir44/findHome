@@ -23,7 +23,7 @@ function startExpress() {
 
     let app = express()
 
-
+    app.use('/user', require('./routers/User.router'))
 
     app.listen(process.env.PORT || 4000)
 
