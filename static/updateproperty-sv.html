@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Update Property</title>
+
+    <link rel="stylesheet" href="css/update.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="leftbox">
+            <nav>
+                <a onclick="tabs(0)" class="tab">
+                    <i class="fa fa-info-circle"></i>
+                </a>
+                <a onclick="tabs(1)" class="tab">
+                    <i class="fa fa-building"></i>
+                </a>
+                <a onclick="tabs(2)" class="tab">
+                    <i class="fa fa-home"></i>
+                </a>
+            </nav>
+        </div>
+        <div class="rightbox">
+            <div class="general tabShow">
+                <h1>General Information</h1>
+                <h2>Name</h2>
+                <input type="text" class="input" value="Sky View">
+                <h2>Type</h2>
+                <input type="text" class="input" value="Commercial">
+                <h2>Location</h2>
+                <input type="text" class="input" value="Mirpur,Dhaka,Bangladesh">
+                <h2>Price</h2>
+                <input type="text" class="input" value="90,00,000"> 
+                <h2>Unit Size</h2>
+                <input type="text" class="input" value="1200 Sqft">
+                <button class="btn">Update</button>
+            </div>
+            <div class="appartment tabShow">
+                <h1>Appartments Information</h1>
+                <h2>Land Area</h2>
+                <input type="text" class="input" value="10 Katha">
+                <h2>Facing</h2>
+                <input type="text" class="input" value="South">
+                <h2>Number of Elevators</h2>
+                <input type="text" class="input" value="1"> 
+                <h2>Number of Floors</h2>
+                <input type="text" class="input" value="10">
+                <h2>Number of Appartments</h2>
+                <input type="text" class="input" value="30">
+                <h2>Parking</h2>
+                <input type="text" class="input" value="Basement+Ground">
+                <h2>Number of Car Parking</h2>
+                <input type="text" class="input" value="20">
+                <button class="btn">Update</button>
+            </div>
+            <div class="flats tabShow">
+                <h1>Each Flats Contain</h1>
+                <h2>Number of Beds</h2>
+                <input type="text" class="input" value="3">
+                <h2>Number of Baths</h2>
+                <input type="text" class="input" value="3">
+                <h2>Number of Varenda</h2>
+                <input type="text" class="input" value="2"> 
+
+                <button class="btn">Update</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="jquery/jquery.js"></script>
+    <script>
+        const tabBtn= document.querySelectorAll(".tab");
+        const tab= document.querySelectorAll(".tabShow");
+
+        function tabs(panelIndex){
+            tab.forEach(function(node) {
+                node.style.display = "none";
+            });
+            tab[panelIndex].style.display = "block";
+        }
+        tabs(0);
+
+    </script>
+    <script>
+         $(".tab").click(function(){
+            $(this).addClass("active").siblings().removeClass("active");
+            
+         });
+    </script>
+</body>
+</html>
