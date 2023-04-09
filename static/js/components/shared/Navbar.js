@@ -1,6 +1,6 @@
 async function Navbar() {
 
-    let { post } = await fetch('http://localhost:4000/a')
+    let { post } = await fetch('http://localhost:4000/a/4')
         .then(res => res.json())
     return `<div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">

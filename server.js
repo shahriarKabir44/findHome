@@ -24,6 +24,7 @@ function startExpress() {
 
 
     let app = express()
+    app.use(require('cors')())
     app.use(express.static('static'))
     app.use('/user', require('./routers/User.router'))
     app.use('/property', require('./routers/Property.router'))
@@ -32,8 +33,8 @@ function startExpress() {
     app.use('/admin', require('./routers/Admin.router'))
     app.use('/offer', require('./routers/Offer.router'))
     app.listen(process.env.PORT || 4000)
-    app.get('/a', (req, res) => {
-        res.send({ post: "test data" })
+    app.get('/a/:id', (req, res) => {
+        res.send({ post: "test data" + req.params.id })
     })
 }
 

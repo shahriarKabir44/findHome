@@ -1,28 +1,584 @@
- 
-        <!-- Spinner End -->
 
-
-        <!-- Navbar Start -->
-         
         <!-- Navbar End -->
+
+
         <!-- Header Start -->
-         
+      
         <!-- Header End -->
-       
-       
+
+
+        <!-- Search Start -->
+         
+        <!-- Search End -->
+
+
+        <!-- Property List Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-0 gx-5 align-items-end">
+                    <div class="col-lg-6">
+                        <div class="text-start mx-auto mb-5 wow slideInLeft" data-wow-delay="0.1s">
+                            <h1 class="mb-3">List of Property</h1>
+                            <h6>Flats or properties for sell in Dhaka</h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                        <ul class="nav nav-pills d-inline-flex justify-content-end mb-5">
+                            <li class="nav-item me-2">
+                                <a class="btn btn-outline-primary active" data-bs-toggle="pill"
+                                    href="#tab-1">Featured</a>
+                            </li>
+                            <li class="nav-item me-2">
+                                <a class="btn btn-outline-primary" data-bs-toggle="pill" href="#tab-2">For Sell</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="row g-4">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href="propertydetails-sv.html"><img class="img-fluid"
+                                                src="img/property-1.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">90,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Sky View</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Mirpur, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1200 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href="propertydetails-kuheli.html"><img class="img-fluid"
+                                                src="img/property-2.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">80,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Kuheli</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Shantinagar, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1200 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-3.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,00,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Banani, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1400 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>4 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-4.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">80,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Bashundhara, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1100 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-5.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,25,30,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Gulshan, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1400 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-6.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,50,30,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Location, City, Country
+                                        </p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1400 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                                <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-2" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-1.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,20,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Mirpur, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1300 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>4 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-2.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">90,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Bashundhara, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1200 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-3.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,50,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Banani, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1500 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>4 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-4.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Rent</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,40,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Mirpur, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1400 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>4 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-5.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,30,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Bashundhara, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1400 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>4 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-6.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,00,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Shantinagar, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1300 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-3" class="tab-pane fade show p-0">
+                        <div class="row g-4">
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-1.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,40,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Banani, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1500 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>4 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-2.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">90,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Kalshi, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1200 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-3.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">70,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Mirpur, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1100 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-4.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Commercial</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">80,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Bashundhara, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1000 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-5.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,20,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Mirpur, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1400 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>4 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        <a href=""><img class="img-fluid" src="img/property-6.jpg" alt=""></a>
+                                        <div
+                                            class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+                                            For Sell</div>
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                            Residential</div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">1,30,00,000</h5>
+                                        <a class="d-block h5 mb-2" href="">Golden Urban House For Sell</a>
+                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>Kalshi, Dhaka,
+                                            Bangladesh</p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-ruler-combined text-primary me-2"></i>1400 Sqft</small>
+                                        <small class="flex-fill text-center border-end py-2"><i
+                                                class="fa fa-bed text-primary me-2"></i>4 Bed</small>
+                                        <small class="flex-fill text-center py-2"><i
+                                                class="fa fa-bath text-primary me-2"></i>3 Bath</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Property List End -->
 
 
 
-
-
-
-
-
-
-
-
-
-
+        <!-- Call to Action Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded p-3">
+                    <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                        <div class="row g-5 align-items-center">
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                                <img class="img-fluid rounded w-100" src="img/call-to-action.jpg" alt="">
+                            </div>
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="mb-4">
+                                    <h1 class="mb-3">Contact Us</h1>
+                                    <p>If you want to contact with the company you can simply call us or give a messege.
+                                    </p>
+                                </div>
+                                <a href="" class="btn btn-primary py-3 px-4 me-2"><i
+                                        class="fa fa-phone-alt me-2"></i>Make A Call</a>
+                                <a href="contact.html" class="btn btn-dark py-3 px-4"><i class="fa me-2"></i>Give a
+                                    short messege</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
 
 
         <!-- Footer Start -->
@@ -106,6 +662,4 @@
             </div>
             <br>
         </div>
-        <!-- Footer End -->
-
-
+        <!-- Foot
