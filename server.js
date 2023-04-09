@@ -24,13 +24,13 @@ function startExpress() {
 
 
     let app = express()
-    app.use(express.static('public'))
+    app.use(express.static('static'))
     app.use('/user', require('./routers/User.router'))
     app.use('/property', require('./routers/Property.router'))
     app.use('/notification', require('./routers/Notification.router'))
     app.use('/company', require('./routers/Company.router'))
     app.use('/admin', require('./routers/Admin.router'))
-    app.use('/offer', require('./routers/offer.router'))
+    app.use('/offer', require('./routers/Offer.router'))
     app.listen(process.env.PORT || 4000)
 
 }

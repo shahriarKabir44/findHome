@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "nodemon",
+    "install-packages": "npm i",
     "start": "node server.js"
   },
   "keywords": [],
