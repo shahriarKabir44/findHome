@@ -32,6 +32,8 @@ function startExpress() {
     app.use('/admin', require('./routers/Admin.router'))
     app.use('/offer', require('./routers/Offer.router'))
     app.listen(process.env.PORT || 4000)
-
+    app.get('/a', (req, res) => {
+        res.send({ post: "test data" })
+    })
 }
 

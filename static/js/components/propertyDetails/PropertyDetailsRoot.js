@@ -1,7 +1,12 @@
-document.getElementById('container').innerHTML = `
 
-    ${Spinner()}
-    ${Navbar()}
+async function render() {
+
+    let { post } = await fetch('http://localhost:4000/a')
+        .then(res => res.json())
+    return `
+
+   
+    ${await Navbar()}
     ${Header()}
     <br><br><br><br><br><br>
     <div class="container-fluid header bg-white p-0">
@@ -11,7 +16,7 @@ document.getElementById('container').innerHTML = `
                 <a href="index.html">
                     <h4 class="m-0 text-white">Sky View</h4>
                 </a>
-                <a href="propertydetails-sv.html">Overview</a>
+                <a href="propertydetails-sv.html">${post}</a>
                 <a href="#">Floor Plan</a>
                 <a href="#">Location Map</a>
                 <a href="contact.html">Contact</a>
@@ -138,3 +143,18 @@ document.getElementById('container').innerHTML = `
 
         ${Footer()}
 `
+}
+
+
+
+render()
+    .then(data => {
+        document.getElementById('container').innerHTML = data
+
+    })
+
+
+
+//     .then(response => response.json())
+
+
