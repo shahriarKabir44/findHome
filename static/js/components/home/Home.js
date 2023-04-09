@@ -1,15 +1,22 @@
-document.getElementById('container').innerHTML = ` 
-    ${Spinner()}
-    ${Navbar()}
-    <br>
+
+async function render() {
+    return ` 
+    ${await Navbar()}
+    <br><br><br><br><br><br>
     ${Header()}
     ${SearchPanel()}
     ${CatagoryList()}
     ${About()}
-    ${PropertyList()}
+    ${await PropertyList()}
     ${Action()}
     ${CompanyProfile()}
     ${TeamContainer()}
     ${TestimonialContainer()}
     ${Footer()}
 `
+}
+render()
+    .then(html => {
+        document.getElementById('container').innerHTML = html
+
+    })

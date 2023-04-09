@@ -5,7 +5,9 @@ async function render() {
         ${await Navbar()}
         ${Header()}
         ${SearchPanel()}
-    
+        ${await PropertyList()}
+        ${ContactUsPanel()}
+        ${Footer()}
     `
 }
 
