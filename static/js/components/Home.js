@@ -7,5 +7,9 @@ document.getElementById('container').innerHTML = `
     ${CatagoryList()}
     ${About()}
     ${PropertyList()}
+    ${Action()}
+    ${CompanyProfile()}
+    ${TeamContainer()}
+    ${TestimonialContainer()}
     ${Footer()}
 `
