@@ -24,6 +24,7 @@ function startExpress() {
 
 
     let app = express()
+    app.use(express.json())
     app.use(require('cors')())
     app.use(express.static('public'))
     app.use('/user', require('./routers/User.router'))

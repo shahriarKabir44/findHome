@@ -1,21 +1,17 @@
 const jwt = require('jsonwebtoken')
 
-module.exports = function (req, res, next) {
-    let token = req.headers['token']
+module.exports = function (token, key) {
 
-    if (!token) res.send({ data: null })
-    else {
-        jwt.verify(token, process.env.jwtSecret, (err, user) => {
-            if (err) {
-                res.send({
-                    user: null
-                })
-            }
-            else {
-                user.password = null
-                req.user = user
-                next()
-            }
-        })
-    }
+
+    if (!token) return null
+
+    jwt.verify(token, key, (err, user) => {
+        if (err) {
+            return null
+        }
+        else {
+            return user
+        }
+    })
+
 }
