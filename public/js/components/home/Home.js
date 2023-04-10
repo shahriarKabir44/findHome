@@ -8,7 +8,7 @@ async function render() {
     ${CatagoryList()}
     ${About()}
     ${await PropertyList()}
-    ${Action()}
+    ${ContactUsPanel()}
     ${CompanyProfile()}
     ${TeamContainer()}
     ${TestimonialContainer()}
