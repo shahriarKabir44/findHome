@@ -43,9 +43,7 @@ CompanyRouter.post('/update', (req, res) => {
 })
 
 CompanyRouter.get('/isAuthorized', async (req, res) => {
-    console.log('here')
     let company = await validateJWT(req.headers['token'], process.env.jwtSecretCompany)
-    console.log(company)
     res.send({ 'company': company ? company : null })
 })
 

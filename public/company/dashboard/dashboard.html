@@ -3,57 +3,17 @@
 
 <head>
     <title>Admin Panel</title>
+    <link rel="stylesheet" href="http://localhost:4000/company/dashboard/dashboard.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
-<style>
-    img.demoImage {
-        width: 70%;
-        max-width: 70%;
-        margin: 0 auto;
-        border-radius: 10px;
-        display: flex;
-    }
 
-    td {
-        vertical-align: middle !important;
-    }
-
-    .card {
-        padding: 20px;
-        box-shadow: 0px 0px 5px #888888;
-    }
-
-    .img-container {
-        display: flex;
-        align-items: center;
-    }
-
-    .img-container img {
-        width: 100%;
-
-        margin-right: 20px;
-    }
-
-    @media (max-width: 767px) {
-        .img-container img {
-            margin-right: 0px;
-        }
-
-        .img-container {
-            flex-direction: column;
-            align-items: center;
-        }
-    }
-</style>
 
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="onInit()">
-
-
-    <!-- <div class="modal" id="myModal">
+    <div class="modal" id="addPropertyModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -65,29 +25,17 @@
                 <div class="modal-body">
                     <div class="container">
 
-                        <form ng-submit="createCompany()">
+                        <form ng-submit="createProperty()">
+
+
                             <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" class="form-control" id="email" ng-model="newCompany.email"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone:</label>
-                                <input type="tel" class="form-control" id="phone" ng-model="newCompany.phoneNumbers"
-                                    required>
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Name:</label>
-                                <input type="text" class="form-control" id="name" ng-model="newCompany.name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="name">Password:</label>
-                                <input type="password" class="form-control" id="ps" ng-model="newCompany.password"
+                                <label for="name">Price:</label>
+                                <input type="number" class="form-control" id="name" ng-model="newProperty.price"
                                     required>
                             </div>
                             <div class="form-group">
                                 <label for="location">Location:</label>
-                                <select class="form-control" id="location" ng-model="newCompany.location" required>
+                                <select class="form-control" id="location" ng-model="newProperty.location" required>
                                     <option value="">Select location</option>
                                     <option value="New York">New York</option>
                                     <option value="Los Angeles">Los Angeles</option>
@@ -96,17 +44,55 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="image">Image:</label>
-                                <input type="file" id="image" accept="image/*"
-                                    onchange="angular.element(this).scope().uploadImage(event)">
-                                <p>Preview:</p>
-                                <img class="demoImage" src={{newCompany.image}} alt="">
-                            </div>
-                            <div style="display: flex; justify-content: space-between;">
-                                <button type="submit" class="btn btn-success"
-                                    ng-disabled="myForm.$invalid">Submit</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <label for="image1">Images:</label>
+                                <input name="image1" type="file" accept="image/*"
+                                    onchange="angular.element(this).scope().uploadImage(event,0)">
 
+                            </div>
+                            <div class="form-group">
+                                <label for="image2">Images:</label>
+                                <input name="image2" type="file" accept="image/*"
+                                    onchange="angular.element(this).scope().uploadImage(event,1)">
+                            </div>
+                            <div class="form-group">
+                                <label for="image3">Images:</label>
+                                <input name="image3" type="file" accept="image/*"
+                                    onchange="angular.element(this).scope().uploadImage(event,2)">
+                            </div>
+                            <div class="form-group">
+
+
+                                <p>Previews:</p>
+                                <div class="imgPreviewContainer">
+                                    <div ng-if="prevewImages[0]!=null" class="imgPreviewCard">
+                                        <div class="imgPreviewCard-content">
+                                            <img src={{prevewImages[0]}} alt="aa" class="preview">
+                                        </div>
+                                        <button ng-click="removePhoto(0)" class="btn btn-danger">delete</button>
+
+                                    </div>
+                                    <div ng-if="prevewImages[1]!=null" class="imgPreviewCard">
+                                        <div class="imgPreviewCard-content">
+                                            <img src={{prevewImages[1]}} alt="aaa" class="preview">
+
+                                        </div>
+                                        <button ng-click="removePhoto(1)" class="btn btn-danger">delete</button>
+
+                                    </div>
+                                    <div ng-if="prevewImages[2]!=null" class="imgPreviewCard">
+                                        <div class="imgPreviewCard-content">
+                                            <img src={{prevewImages[2]}} alt="aaaa" class="preview">
+
+                                        </div>
+                                        <button ng-click="removePhoto(2)" class="btn btn-danger">delete</button>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <button type="submit" class="btn btn-success"
+                                        ng-disabled="myForm.$invalid">Submit</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -116,7 +102,7 @@
 
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- <div class="container">
 
@@ -160,10 +146,10 @@
     <div class="container">
         <h2>{{company.name}}</h2>
         <div class="container">
-            <div class="row">
-                <!-- <div class="col-md-6 img-container">
-                    <img src={{company.image}} alt="My Profile Picture">
-                </div> -->
+            <div class="row" style="align-items: center;">
+                <div class="col-md-6 img-container">
+                    <img src={{company.image}} alt="Company Profile Picture">
+                </div>
                 <div class="col-md-6">
                     <div class="card">
 
@@ -174,39 +160,43 @@
                 </div>
             </div>
         </div>
-        <!-- <div style="display: flex;align-items: center ;justify-content: space-around;">
-            <h2>Company List</h2>
-            <button ng-click="openModal()" class="btn btn-primary">+</button>
+
+        <div class="container" style="border: 1px solid;margin: 10px;padding: 10px;">
+            <div style="display: flex;align-items: center ;justify-content: space-around;margin: 10px;">
+                <h5>Property List</h5>
+                <button ng-click="openModal()" class="btn btn-primary">+</button>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th><input type="text" ng-model="search.location" class="form-control"
+                                placeholder="Search location"></th>
+                        <th><input type="text" ng-model="search.price" class="form-control" placeholder="Search price">
+                        </th>
+                        <th><input type="text" ng-model="search.owner" class="form-control" placeholder="Search Owner">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Photo</th>
+                        <th>Location</th>
+                        <th>Price</th>
+                        <th>Owner</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="property in properties | filter:search">
+                        <td> <img style="width: 150px;" class="companyImageTable" src={{property.image}} alt=""> </td>
+                        <td> {{property.name}} </td>
+                        <td>{{ property.email }}</td>
+                        <td>{{ property.phoneNumbers }}</td>
+                        <td>{{ property.location }}</td>
+                        <td> <button ng-click="viewCompany(property.id)" class="btn btn-success">View</button> </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th><input type="text" ng-model="search.email" class="form-control" placeholder="Search Email"></th>
-                    <th><input type="text" ng-model="search.phoneNumbers" class="form-control"
-                            placeholder="Search phoneNumbers"></th>
-                    <th><input type="text" ng-model="search.location" class="form-control"
-                            placeholder="Search Location"></th>
-                </tr>
-                <tr>
-                    <th>Photo</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Location</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="company in companies | filter:search">
-                    <td> <img style="width: 150px;" class="companyImageTable" src={{company.image}} alt=""> </td>
-                    <td> {{company.name}} </td>
-                    <td>{{ company.email }}</td>
-                    <td>{{ company.phoneNumbers }}</td>
-                    <td>{{ company.location }}</td>
-                    <td> <button ng-click="viewCompany(company.id)" class="btn btn-success">View</button> </td>
-                </tr>
-            </tbody>
-        </table> -->
     </div>
     <script src="http://localhost:4000/js/global.js"></script>
     <script src="http://localhost:4000/company/dashboard/dashboard.js"> </script>
