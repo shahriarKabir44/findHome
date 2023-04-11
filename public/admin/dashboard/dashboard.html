@@ -17,6 +17,37 @@
         border-radius: 10px;
         display: flex;
     }
+
+    td {
+        vertical-align: middle !important;
+    }
+
+    .card {
+        padding: 20px;
+        box-shadow: 0px 0px 5px #888888;
+    }
+
+    .img-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .img-container img {
+        width: 100%;
+
+        margin-right: 20px;
+    }
+
+    @media (max-width: 767px) {
+        .img-container img {
+            margin-right: 0px;
+        }
+
+        .img-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 </style>
 
 <body ng-app="myApp" ng-controller="myCtrl">
@@ -90,9 +121,51 @@
         </div>
     </div>
 
-
-
     <div class="container">
+        <!-- Button to Open the Modal -->
+
+        <!-- The Modal -->
+        <div class="modal fade" id="detailsModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{selectedCompany.name}}</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 img-container">
+                                    <img src={{selectedCompany.image}} alt="My Profile Picture">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card">
+
+                                        <p><strong>Email:</strong> {{selectedCompany.email}}</p>
+                                        <p><strong>Phone:</strong> {{selectedCompany.phoneNumbers}}</p>
+                                        <p><strong>Location:</strong> {{selectedCompany.location}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container" ng-init="getCompanies()">
         <div style="display: flex;align-items: center ;justify-content: space-around;">
             <h2>Company List</h2>
             <button ng-click="openModal()" class="btn btn-primary">+</button>
@@ -117,12 +190,12 @@
             </thead>
             <tbody>
                 <tr ng-repeat="company in companies | filter:search">
-                    <td>{{ company.image }}</td>
+                    <td> <img style="width: 150px;" class="companyImageTable" src={{company.image}} alt=""> </td>
                     <td> {{company.name}} </td>
                     <td>{{ company.email }}</td>
                     <td>{{ company.phoneNumbers }}</td>
                     <td>{{ company.location }}</td>
-                    <td> <button class="btn btn-success">View</button> </td>
+                    <td> <button ng-click="viewCompany(company.id)" class="btn btn-success">View</button> </td>
                 </tr>
             </tbody>
         </table>

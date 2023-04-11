@@ -8,6 +8,23 @@ app.controller('myCtrl', function ($scope) {
         $("#myModal").modal('show')
 
     }
+    $scope.getCompanies = async () => {
+        let { companies } = await __fetch('company/getCompanyList/0')
+
+        $scope.companies = companies.map(company => {
+            return { ...company, image: 'http://localhost:4000/' + company.image }
+        })
+        $scope.$apply()
+    }
+    $scope.selectedCompany = {}
+    $scope.viewCompany = async (id) => {
+        let { company } = await __fetch('company/searchById/' + id)
+        $scope.selectedCompany = company
+        company.image = 'http://localhost:4000/' + company.image
+        $scope.$apply()
+        $("#detailsModal").modal('show')
+
+    }
     $scope.newCompany = {}
     $scope.createCompany = async () => {
         let image = $scope.newCompany.image
@@ -22,6 +39,8 @@ app.controller('myCtrl', function ($scope) {
             filetype: "company",
             userid: id
         })
+        $("#myModal").modal('hide')
+
     }
     $scope.uploadImage = function (event) {
         var files = event.target.files;

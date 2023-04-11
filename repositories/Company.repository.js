@@ -65,7 +65,7 @@ module.exports = class CompanyRepository {
         return promisify({
             sql: `select id, name, location, image, phoneNumbers, email
                  from company limit ?,5;`,
-            values: [pageNumber]
+            values: [pageNumber * 1]
         })
     }
     static async searchById({ id }) {
