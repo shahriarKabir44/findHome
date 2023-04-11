@@ -9,8 +9,8 @@ AdminRouter.post('/authenticate', (req, res) => {
         })
 })
 
-AdminRouter.get('/isAuthorized', (req, res) => {
-    let admin = validateJWT(req.headers['token'], process.env.jwtSecretAdmin)
+AdminRouter.get('/isAuthorized', async (req, res) => {
+    let admin = await validateJWT(req.headers['token'], process.env.jwtSecretAdmin)
     res.send({ 'admin': admin ? admin : null })
 })
 

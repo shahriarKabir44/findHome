@@ -4,14 +4,17 @@ var app = angular.module('myApp', []);
 app.controller('myCtrl', function ($scope) {
     $scope.companies = []
     $scope.checkLoggedIn = async function () {
-        let admin = await __fetch('admin/isAuthorized')
-        if (!admin) {
-            location.href = 'http://localhost:4000/admin/login/login.html'
-        }
+        let { company } = await __fetch('company/isAuthorized')
+        console.log(company)
+        $scope.company = company
+        // if (!company) {
+        //     location.href = 'http://localhost:4000/company/login/login.html'
+        // }
     }
 
 
     $scope.onInit = () => {
+        console.log('onInit')
         $scope.checkLoggedIn()
         $scope.getCompanies()
     }

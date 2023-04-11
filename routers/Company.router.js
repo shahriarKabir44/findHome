@@ -2,6 +2,8 @@ const CompanyRouter = require('express').Router()
 const CompanyRepository = require('../repositories/Company.repository')
 const { upload } = require("../utils/fileManager");
 
+const validateJWT = require('../utils/validateJWT')
+
 CompanyRouter.post('/uploadImage', upload.single('file'), (req, res) => {
     let fileURL = req.fileDir + '/' + req.filename
     let id = req.headers.userid
@@ -40,9 +42,11 @@ CompanyRouter.post('/update', (req, res) => {
         })
 })
 
-CompanyRouter.get('/isAuthorized', (req, res) => {
-    let admin = validateJWT(req.headers['token'], process.env.jwtSecretCompany)
-    res.send({ 'admin': admin ? admin : null })
+CompanyRouter.get('/isAuthorized', async (req, res) => {
+    console.log('here')
+    let company = await validateJWT(req.headers['token'], process.env.jwtSecretCompany)
+    console.log(company)
+    res.send({ 'company': company ? company : null })
 })
 
 module.exports = CompanyRouter
