@@ -3,17 +3,22 @@ const { createInsertQuery } = require('../utils/queryBuilder')
 const jwt = require('jsonwebtoken')
 
 module.exports = class CompanyRepository {
-    static async register({ name, location, image, phoneNumbers, email }) {
-        await promisify({
-            sql: createInsertQuery('company', ['name', 'location', 'image', 'phoneNumbers', 'email']),
-            values: [name, location, image, phoneNumbers, email]
-        })
-        let [{ id }] = await promisify({
-            sql: `select id from company
+    static async register({ name, location, image, phoneNumbers, email, password }) {
+        try {
+            await promisify({
+                sql: createInsertQuery('company', ['name', 'location', 'image', 'phoneNumbers', 'email', 'password']),
+                values: [name, location, image, phoneNumbers, email, password]
+            })
+            let [{ id }] = await promisify({
+                sql: `select id from company
                 where email = ? ;`,
-            values: [email]
-        })
-        return id
+                values: [email]
+            })
+            return id
+        } catch (error) {
+            return null
+        }
+
     }
     static async update({ id, name, location, image, phoneNumbers, email }) {
         let fields = []
