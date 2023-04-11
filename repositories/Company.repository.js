@@ -58,7 +58,6 @@ module.exports = class CompanyRepository {
             company: null,
             token: null
         }
-        console.log(process.env.jwtSecretCompany)
         let token = jwt.sign({ ...company, type: "company" }, process.env.jwtSecretCompany)
         return { company, token }
     }

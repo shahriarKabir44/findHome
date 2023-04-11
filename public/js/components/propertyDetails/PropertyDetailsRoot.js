@@ -1,6 +1,5 @@
 
 async function render() {
-    console.log((location.search))
     let params = new URLSearchParams(location.search)
     let id = (params.get('id'))
     let { post } = await fetch('http://localhost:4000/a/' + id)

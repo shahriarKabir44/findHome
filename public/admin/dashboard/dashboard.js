@@ -4,10 +4,12 @@ var app = angular.module('myApp', []);
 app.controller('myCtrl', function ($scope) {
     $scope.companies = []
     $scope.checkLoggedIn = async function () {
-        let admin = await __fetch('admin/isAuthorized')
-        if (!admin) {
-            location.href = 'http://localhost:4000/admin/login/login.html'
-        }
+        let { admin } = await __fetch('admin/isAuthorized')
+        console.log(admin)
+        // if (!admin) {
+        //     localStorage.clear()
+        //     location.href = 'http://localhost:4000/admin/login/login.html'
+        // }
     }
 
 
@@ -16,7 +18,6 @@ app.controller('myCtrl', function ($scope) {
         $scope.getCompanies()
     }
     $scope.openModal = () => {
-        console.log($("#myModal"))
         $("#myModal").modal('show')
 
     }
@@ -52,6 +53,7 @@ app.controller('myCtrl', function ($scope) {
             userid: id
         })
         $("#myModal").modal('hide')
+        $scope.getCompanies()
 
     }
     $scope.uploadImage = function (event) {

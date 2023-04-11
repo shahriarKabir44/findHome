@@ -21,7 +21,6 @@ PropertyRouter.post('/create', (req, res) => {
         })
 })
 PropertyRouter.post('/update', (req, res) => {
-    console.log(req.body)
     PropertyRepository.update(req.body)
         .then(() => {
             res.send({ success: true })

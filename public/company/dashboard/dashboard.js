@@ -46,7 +46,6 @@ app.controller('myCtrl', function ($scope) {
                         propertyid: newId,
                         companyid: $scope.company.id
                     }).then(({ fileURL }) => {
-                        console.log(fileURL);
                         urls.push(fileURL)
                     })
                 )
