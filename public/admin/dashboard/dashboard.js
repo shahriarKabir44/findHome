@@ -3,6 +3,18 @@ var app = angular.module('myApp', []);
 
 app.controller('myCtrl', function ($scope) {
     $scope.companies = []
+    $scope.checkLoggedIn = async function () {
+        let admin = await __fetch('admin/isAuthorized')
+        if (!admin) {
+            location.href = 'http://localhost:4000/admin/dashboard/dashboard.html'
+        }
+    }
+
+
+    $scope.onInit = () => {
+        $scope.checkLoggedIn()
+        $scope.getCompanies()
+    }
     $scope.openModal = () => {
         console.log($("#myModal"))
         $("#myModal").modal('show')

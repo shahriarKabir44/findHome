@@ -5,8 +5,9 @@ angular.module('login-app', []).controller('login-controller', function ($scope)
 
     $scope.checkLoggedIn = async function () {
         let admin = await __fetch('admin/isAuthorized')
-        if (admin) { }
-
+        if (admin) {
+            location.href = 'http://localhost:4000/admin/dashboard/dashboard.html'
+        }
     }
 
     $scope.login = async function () {
