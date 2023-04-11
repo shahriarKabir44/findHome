@@ -9,9 +9,8 @@ PropertyRouter.get('/searchPropertybyId/:id', (req, res) => {
         })
 })
 
-PropertyRouter.post('/uploadPropertyImage', upload.single('file'), (req, res) => {
+PropertyRouter.post('/uploadImage', upload.single('file'), (req, res) => {
     let fileURL = req.fileDir + '/' + req.filename
-
     res.send({ fileURL })
 })
 
@@ -22,6 +21,7 @@ PropertyRouter.post('/create', (req, res) => {
         })
 })
 PropertyRouter.post('/update', (req, res) => {
+    console.log(req.body)
     PropertyRepository.update(req.body)
         .then(() => {
             res.send({ success: true })

@@ -24,4 +24,5 @@ async function uploadImage(base64Image, API, headers) {
             ...headers
         }
     }).then(res => res.json())
+    return url
 }

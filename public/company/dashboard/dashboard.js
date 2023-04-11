@@ -29,16 +29,33 @@ app.controller('myCtrl', function ($scope) {
 
     }
     $scope.getProperties = async () => {
-        let { companies } = await __fetch()
 
-        $scope.companies = companies.map(company => {
-            return { ...company, image: 'http://localhost:4000/' + company.image }
-        })
-        $scope.$apply()
     }
-    $scope.createProperty = () => {
-        $scope.newProperty.sellserId = $scope.company.id
-        console.log($scope.newProperty)
+    $scope.createProperty = async () => {
+        $scope.newProperty.sellerId = $scope.company.id
+        let { newId } = await __fetch('property/create', $scope.newProperty)
+        let promises = []
+        let urls = []
+        for (let n = 0; n < $scope.prevewImages.length; n++) {
+            let image = $scope.prevewImages[n]
+            if (image) {
+                promises.push(
+                    uploadImage(image, 'property/uploadImage', {
+                        filetype: "property",
+                        fileindex: n,
+                        propertyid: newId,
+                        companyid: $scope.company.id
+                    }).then(({ fileURL }) => {
+                        console.log(fileURL);
+                        urls.push(fileURL)
+                    })
+                )
+            }
+        }
+        await Promise.all(promises)
+        await __fetch('property/update', { images: JSON.stringify(urls), id: newId })
+        $("#addPropertyModal").modal('hide')
+
     }
 
     $scope.uploadImage = function (event, order) {
