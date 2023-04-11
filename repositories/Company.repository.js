@@ -58,7 +58,7 @@ module.exports = class CompanyRepository {
             company: null,
             token: null
         }
-        let token = jwt.sign(company, process.env.jwtSecret)
+        let token = jwt.sign({ ...company, type: "company" }, process.env.jwtSecretCompany)
         return { company, token }
     }
     static async getCompanyList({ pageNumber }) {

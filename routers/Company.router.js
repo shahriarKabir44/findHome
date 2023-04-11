@@ -40,4 +40,9 @@ CompanyRouter.post('/update', (req, res) => {
         })
 })
 
+CompanyRouter.get('/isAuthorized', (req, res) => {
+    let admin = validateJWT(req.headers['token'], process.env.jwtSecretCompany)
+    res.send({ 'admin': admin ? admin : null })
+})
+
 module.exports = CompanyRouter
