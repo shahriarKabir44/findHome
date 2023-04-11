@@ -14,6 +14,12 @@ module.exports = class PropertyRepository {
         })
         return id
     }
+    static async getProperties() {
+        return promisify({
+            sql: `select * from property;`
+
+        })
+    }
     static async setPropertyImages({ id, images }) {
         promisify({
             sql: `${createUpdateQuery('property', ['images'])} where id=?;`,

@@ -13,7 +13,12 @@ PropertyRouter.post('/uploadImage', upload.single('file'), (req, res) => {
     let fileURL = req.fileDir + '/' + req.filename
     res.send({ fileURL })
 })
-
+PropertyRouter.get('/getProperties', (req, res) => {
+    PropertyRepository.getProperties()
+        .then(properties => {
+            res.send({ properties })
+        })
+})
 PropertyRouter.post('/create', (req, res) => {
     PropertyRepository.create(req.body)
         .then(newId => {
