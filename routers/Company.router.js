@@ -4,7 +4,8 @@ const { upload } = require("../utils/fileManager");
 
 CompanyRouter.post('/uploadImage', upload.single('file'), (req, res) => {
     let fileURL = req.fileDir + '/' + req.filename
-
+    let id = req.headers.userid
+    CompanyRepository.update({ id: id, image: fileURL })
     res.send({ fileURL })
 })
 CompanyRouter.post('/register', (req, res) => {

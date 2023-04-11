@@ -1,5 +1,5 @@
 const promisify = require('../utils/promisify');
-const { createInsertQuery } = require('../utils/queryBuilder')
+const { createInsertQuery, createUpdateQuery } = require('../utils/queryBuilder')
 const jwt = require('jsonwebtoken')
 
 module.exports = class CompanyRepository {
@@ -45,7 +45,7 @@ module.exports = class CompanyRepository {
         }
         promisify({
             sql: `${createUpdateQuery('company', fieldNames)} where id=?;`,
-            values: [id, ...fields]
+            values: [...fields, id]
         })
     }
     static async authenticate({ email, password }) {

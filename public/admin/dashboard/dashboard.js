@@ -16,8 +16,12 @@ app.controller('myCtrl', function ($scope) {
 
         if (!id) {
             alert("email already registered")
+            return
         }
-
+        await uploadImage(image, 'company/uploadImage', {
+            filetype: "company",
+            userid: id
+        })
     }
     $scope.uploadImage = function (event) {
         var files = event.target.files;

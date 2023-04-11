@@ -4,8 +4,8 @@ const fs = require('fs')
 const storage = multer.diskStorage({
     destination: (req, res, cb) => {
         const { filetype } = req.headers
-        let path = 'uploads/'
-        let tempPath = '/'
+        let path = 'public/uploads'
+        let tempPath = 'uploads'
         if (filetype == 'property') {
             const { propertyid } = req.headers
             path += `/${propertyid}`
@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
     filename: (req, res, cb) => {
         const { filetype } = req.headers
         let filename = ""
-        if (filetype == 'profilePicture') {
+        if (filetype == 'profilePicture' || filetype == "company") {
             const { userid } = req.headers
             filename = userid
         }
@@ -34,8 +34,8 @@ const storage = multer.diskStorage({
         }
 
 
-        req.filename = `${filename}.${ext}`
-        cb(null, `${filename}.${ext}`)
+        req.filename = `${filename}.jpg`
+        cb(null, `${filename}.jpg`)
     }
 })
 

@@ -15,10 +15,13 @@ async function uploadImage(base64Image, API, headers) {
     let formData = new FormData()
     let blob = await fetch(base64Image)
         .then(res => res.blob())
-    return fetch('http://localhost:4000/', {
+    formData.append('file', blob)
+    let url = await fetch('http://localhost:4000/' + API, {
         method: 'POST',
+        body: formData,
         headers: {
 
+            ...headers
         }
-    })
+    }).then(res => res.json())
 }

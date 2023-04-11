@@ -48,7 +48,7 @@ module.exports = class PropertyRepository {
         }
         promisify({
             sql: `${createUpdateQuery('property', fieldNames)} where id=?;`,
-            values: [id, ...fields]
+            values: [...fields, id]
         })
     }
 
