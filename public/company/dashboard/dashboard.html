@@ -44,6 +44,44 @@
                                 </select>
                             </div>
                             <div class="form-group">
+                                <label for="location">Type:</label>
+                                <select class="form-control" id="type" ng-model="newProperty.type" required>
+                                    <option value="">Select type</option>
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commercial">Commercial</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="location">Phase:</label>
+                                <select class="form-control" id="type" ng-model="newProperty.phase" required>
+                                    <option value="">Select phase</option>
+                                    <option value="upcoming">upcoming</option>
+                                    <option value="ongoing">ongoing</option>
+                                    <option value="completed">completed</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Area: (sq. ft.)</label>
+                                <input type="number" class="form-control" id="name" ng-model="newProperty.area"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Beds: </label>
+                                <input type="number" class="form-control" id="name" ng-model="newProperty.numBeds"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Baths: </label>
+                                <input type="number" class="form-control" id="name" ng-model="newProperty.numBath"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Additional info:(optional) </label>
+                                <textarea name="" class="form-control" id="" ng-model="newProperty.info" required
+                                    cols="30" rows="10"></textarea>
+
+                            </div>
+                            <div class="form-group">
                                 <label for="image1">Images:</label>
                                 <input name="image1" type="file" accept="image/*"
                                     onchange="angular.element(this).scope().uploadImage(event,0)">

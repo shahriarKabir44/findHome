@@ -2,10 +2,10 @@ const promisify = require('../utils/promisify')
 const { createInsertQuery, createUpdateQuery } = require('../utils/queryBuilder')
 
 module.exports = class PropertyRepository {
-    static async create({ sellerId, location, price }) {
+    static async create({ sellerId, location, price, area, numBeds, numBath, info, phase, type }) {
         await promisify({
-            sql: createInsertQuery('property', ['sellerId', 'location', 'price']),
-            values: [sellerId, location, price]
+            sql: createInsertQuery('property', ['sellerId', 'location', 'price', 'area', 'numBeds', 'numBath', 'info', 'phase', 'type']),
+            values: [sellerId, location, price, area, numBeds, numBath, info, phase, type]
         })
         let [{ id }] = await promisify({
             sql: `select max(id) as id from property
@@ -16,7 +16,7 @@ module.exports = class PropertyRepository {
     }
     static async getProperties() {
         return promisify({
-            sql: `select * from property;`
+            sql: `select * from property where   isnull(newOwner);`
 
         })
     }
@@ -33,7 +33,7 @@ module.exports = class PropertyRepository {
         })
         return property
     }
-    static async update({ id, location, price, images, newOwner }) {
+    static async update({ id, images, newOwner, location, price, area, numBeds, numBath, info, phase, type }) {
         let fields = []
         let fieldNames = []
         if (location) {
@@ -51,6 +51,30 @@ module.exports = class PropertyRepository {
         if (newOwner) {
             fields.push(newOwner)
             fieldNames.push('newOwner')
+        }
+        if (area) {
+            fields.push(area)
+            fieldNames.push('area')
+        }
+        if (numBeds) {
+            fields.push(numBeds)
+            fieldNames.push('numBeds')
+        }
+        if (numBath) {
+            fields.push(numBath)
+            fieldNames.push('numBath')
+        }
+        if (info) {
+            fields.push(info)
+            fieldNames.push('info')
+        }
+        if (phase) {
+            fields.push(phase)
+            fieldNames.push('phase')
+        }
+        if (type) {
+            fields.push(type)
+            fieldNames.push('type')
         }
         promisify({
             sql: `${createUpdateQuery('property', fieldNames)} where id=?;`,

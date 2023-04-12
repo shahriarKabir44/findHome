@@ -1,6 +1,11 @@
 async function PropertyList() {
     let { properties } = await fetch('http://localhost:4000/property/getProperties').then(res => res.json());
-    console.log(properties)
+
+    properties = properties.map(property => {
+        property.images = JSON.parse(property.images)
+        property.images = property.images.map(image => 'http://localhost:4000/' + image)
+        return property
+    })
     return `<div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-0 gx-5 align-items-end">
@@ -43,14 +48,8 @@ async function PropertyList() {
                     </div>
                     <div id="tab-3" class="tab-pane fade show p-0">
                         <div class="row g-4">
-                             
-                             ${PropertyItem()}
-                             ${PropertyItem()}
+                            ${properties.map(property => { return PropertyItem(property) }).join()}
 
-                             ${PropertyItem()}
-                             ${PropertyItem()}
-                             ${PropertyItem()}
-                             ${PropertyItem()}
                             <div class="col-12 text-center">
                                 <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
                             </div>

@@ -5,11 +5,10 @@ app.controller('myCtrl', function ($scope) {
     $scope.companies = []
     $scope.checkLoggedIn = async function () {
         let { admin } = await __fetch('admin/isAuthorized')
-        console.log(admin)
-        // if (!admin) {
-        //     localStorage.clear()
-        //     location.href = 'http://localhost:4000/admin/login/login.html'
-        // }
+        if (!admin) {
+            localStorage.clear()
+            location.href = 'http://localhost:4000/admin/login/login.html'
+        }
     }
 
 
