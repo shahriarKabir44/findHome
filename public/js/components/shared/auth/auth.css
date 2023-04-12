@@ -1,0 +1,71 @@
+.modal_auth {
+    display: block;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content_auth {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}
+
+.close_auth {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close_auth:hover_auth,
+.close_auth:focus_auth {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-control_auth {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.btn_auth {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn:hover_auth {
+    background-color: #45a049;
+}
+
+.error_auth {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.success_auth {
+    color: green;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
