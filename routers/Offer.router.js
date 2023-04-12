@@ -21,6 +21,11 @@ OfferRouter.post('/delete', (req, res) => {
         })
 })
 
-
+OfferRouter.get('/getPropertyOffers/:propertyId', (req, res) => {
+    OfferRepository.getPropertyOffers(req.params)
+        .then(offers => {
+            res.send(offers)
+        })
+})
 
 module.exports = OfferRouter

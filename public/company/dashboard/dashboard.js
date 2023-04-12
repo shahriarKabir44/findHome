@@ -19,17 +19,31 @@ app.controller('myCtrl', function ($scope) {
         $scope.$apply()
     }
 
+    $scope.viewProperty = async (propertyId) => {
+        $scope.selectedProperty = {}
+        let { property } = await __fetch('property/searchPropertybyId/' + propertyId)
+        $scope.selectedProperty = property
 
-    $scope.onInit = () => {
-        $scope.checkLoggedIn()
-        //$scope.getProperties()
+    }
+
+    $scope.onInit = async () => {
+        await $scope.checkLoggedIn()
+        await $scope.getOwnedProperties()
     }
     $scope.openModal = () => {
         $("#addPropertyModal").modal('show')
 
     }
-    $scope.getProperties = async () => {
-
+    $scope.ownedProperties = []
+    $scope.getOwnedProperties = async () => {
+        $scope.ownedProperties = await __fetch('company/getOwnedProperties/' + $scope.company.id)
+        $scope.ownedProperties = $scope.ownedProperties.map(property => {
+            property.images = JSON.parse(property.images)
+            if (property.newOwnerName == null) property.newOwnerName = '--'
+            property.images = property.images.map(image => 'http://localhost:4000/' + image)
+            return property
+        });
+        $scope.$apply()
     }
     $scope.createProperty = async () => {
         $scope.newProperty.sellerId = $scope.company.id

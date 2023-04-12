@@ -212,7 +212,8 @@
                                 placeholder="Search location"></th>
                         <th><input type="text" ng-model="search.price" class="form-control" placeholder="Search price">
                         </th>
-                        <th><input type="text" ng-model="search.owner" class="form-control" placeholder="Search Owner">
+                        <th>
+                            <input type="text" ng-model="search.owner" class="form-control" placeholder="Search Owner">
                         </th>
                     </tr>
                     <tr>
@@ -224,13 +225,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="property in properties | filter:search">
-                        <td> <img style="width: 150px;" class="companyImageTable" src={{property.image}} alt=""> </td>
-                        <td> {{property.name}} </td>
-                        <td>{{ property.email }}</td>
-                        <td>{{ property.phoneNumbers }}</td>
-                        <td>{{ property.location }}</td>
-                        <td> <button ng-click="viewCompany(property.id)" class="btn btn-success">View</button> </td>
+                    <tr ng-repeat="property in ownedProperties | filter:search">
+                        <td> <img style="width: 150px;" class="companyImageTable" src={{property.images[0]}} alt="">
+                        </td>
+                        <td> {{property.location}} </td>
+                        <td>{{ property.price }}</td>
+                        <td>{{ property.newOwnerName }}</td>
+                        <td> <button ng-click="viewProperty(property.id)" class="btn btn-success">View</button> </td>
                     </tr>
                 </tbody>
             </table>

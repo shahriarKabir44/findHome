@@ -76,4 +76,20 @@ module.exports = class CompanyRepository {
         company.password = null
         return company
     }
+    static async getOwnedProperties({ companyId }) {
+        return promisify({
+            sql: `select
+                    images,
+                    price,
+                    location, (
+                        select name
+                        from user
+                        where
+                            id = property.newOwner
+                    ) as newOwnerName
+                from property
+                where property.sellerId = ?; `,
+            values: [companyId]
+        })
+    }
 }

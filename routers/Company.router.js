@@ -42,6 +42,13 @@ CompanyRouter.post('/update', (req, res) => {
         })
 })
 
+CompanyRouter.get('/getOwnedProperties/:companyId', (req, res) => {
+    CompanyRepository.getOwnedProperties(req.params)
+        .then(properties => {
+            res.send(properties)
+        })
+})
+
 CompanyRouter.get('/isAuthorized', async (req, res) => {
     let company = await validateJWT(req.headers['token'], process.env.jwtSecretCompany)
     res.send({ 'company': company ? company : null })
