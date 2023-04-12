@@ -14,6 +14,18 @@ module.exports = class PropertyRepository {
         })
         return id
     }
+    static async getCompanyInfo({ propertyId }) {
+        let [company] = await promisify({
+            sql: `SELECT company.id,company.name,company.location,company.image,company.phoneNumbers,company.email
+                from company, property
+                where
+                    property.id = ?
+                    and company.id = property.sellerId;`,
+            values: [propertyId]
+        })
+        company.password = null
+        return company
+    }
     static async getProperties() {
         return promisify({
             sql: `select * from property where   isnull(newOwner);`

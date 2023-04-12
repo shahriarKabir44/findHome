@@ -9,6 +9,14 @@ PropertyRouter.get('/searchPropertybyId/:id', (req, res) => {
         })
 })
 
+PropertyRouter.get('/getCompanyInfo/:propertyId', (req, res) => {
+    PropertyRepository.getCompanyInfo(req.params)
+        .then(company => {
+
+            res.send({ company })
+        })
+})
+
 PropertyRouter.post('/uploadImage', upload.single('file'), (req, res) => {
     let fileURL = req.fileDir + '/' + req.filename
     res.send({ fileURL })

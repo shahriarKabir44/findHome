@@ -7,7 +7,8 @@ async function render() {
     }
     let { property } = await fetch('http://localhost:4000/property/searchPropertybyId/' + id)
         .then(res => res.json())
-    console.log(property)
+    let { company } = await fetch('http://localhost:4000/property/getCompanyInfo/' + id).then(res => res.json())
+    console.log(company, id)
     property.images = JSON.parse(property.images)
     return `
 
@@ -71,41 +72,15 @@ async function render() {
                     <br><br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title mt-4">Appartments Information</h4>
+                            <h4 class="panel-title mt-4">Additional Information</h4>
                         </div>
                         <div class="panel-body">
-                            <table class="table profile__table">
-                                <tbody>
-                                    <tr>
-                                        <th><strong>Land Area</strong></th>
-                                        <td>10 Katha</td>
-                                    </tr>
-                                    <tr>
-                                        <th><strong>Facing</strong></th>
-                                        <td>South</td>
-                                    </tr>
-                                    <tr>
-                                        <th><strong>Number of Elevators</strong></th>
-                                        <td>1</td>
-                                    </tr>
-                                    <tr>
-                                        <th><strong>Number of Floors</strong></th>
-                                        <td>10</td>
-                                    </tr>
-                                    <tr>
-                                        <th><strong>Number of Appartments</strong></th>
-                                        <td>30</td>
-                                    </tr>
-                                    <tr>
-                                        <th><strong>Parking</strong></th>
-                                        <td>Basement+Ground</td>
-                                    </tr>
-                                    <tr>
-                                        <th><strong>Number of Car Parking</strong></th>
-                                        <td>20</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="card">
+                                <div class="card-body">
+                                    <p>${property.info}</p>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
 
@@ -130,6 +105,30 @@ async function render() {
 
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title mt-4">Brought to you by:</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="card">
+                                <div  style="display: grid;
+                                        grid-template-columns: 50% auto;
+                                        align-items: center;
+                                    ">
+                                    <div class="card-body">
+                                        <p>${company.name}</p>
+                                        <p><strong>Email:</strong> ${company.email}</p>
+                                        <p><strong>Phone:</strong> ${company.phoneNumbers}</p>
+                                        <p><strong>Location:</strong> ${company.location}</p>
+                                    </div>
+                                    <img style="width:100%" src="http://localhost:4000/${company.image}" alt="" />
+                                </div>
+                                 
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
