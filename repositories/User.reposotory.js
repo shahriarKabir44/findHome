@@ -34,7 +34,7 @@ module.exports = class UserRepository {
                 from user where email=?,password=?;`,
             values: [email, password]
         })
-        let token = jwt.sign(user, process.env.jwtSecret)
+        let token = jwt.sign(user, process.env.jwtSecretUser)
         return { user, token }
     }
 }

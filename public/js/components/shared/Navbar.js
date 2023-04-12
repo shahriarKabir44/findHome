@@ -1,7 +1,6 @@
-async function Navbar() {
+async function Navbar({ user }) {
+    console.log(user)
 
-    let { post } = await fetch('http://localhost:4000/a/4')
-        .then(res => res.json())
     return `<div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                 <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
@@ -15,8 +14,6 @@ async function Navbar() {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">${post}</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
                             <div class="dropdown-menu rounded-0 m-0">
@@ -46,8 +43,15 @@ async function Navbar() {
                             </div>
                         </div>
                         <div class="notificationbar">
+                            ${user ? ` <a href="login.html" class="fas fa-user"></a>` : `
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sign in</span></a>
+                                 <div class="dropdown-menu rounded-0 m-0">
+                                <a href="construction.html" class="dropdown-item">Login</a>
+                                <a href="interior.html" class="dropdown-item">Sign up</a>
+                            </div>
+                            </div>`}
 
-                            <a href="login.html" class="fas fa-user"></a>
 
                         </div>
 

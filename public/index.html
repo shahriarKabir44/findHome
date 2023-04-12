@@ -68,7 +68,7 @@
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
+    <script defer src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,8 +91,8 @@
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0" id="container">
-
+    <div ng-app="home" ng-controller="home" ng-init="onInit()" class="container-xxl bg-white p-0" id="container">
+        <div ng-bind-html="html"></div>
     </div>
 
     <!-- JavaScript Libraries -->
@@ -111,6 +111,7 @@
     <script defer src="./js/components/shared/Footer.js"></script>
     <script defer src="./js/components/shared/Header.js"></script>
     <script defer src="./js/components/shared/SearchPanel.js"></script>
+    <script defer src="http://localhost:4000/js/global.js"></script>
 
     <script defer src="./js/components/home/About.js"></script>
     <script defer src="./js/components/home/CatagoryList.js"></script>

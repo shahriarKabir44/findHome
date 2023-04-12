@@ -1,5 +1,4 @@
 function PropertyItem(property) {
-    console.log(property)
     return ` <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="property-item rounded overflow-hidden">
                     <div class="position-relative overflow-hidden">

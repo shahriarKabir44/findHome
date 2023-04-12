@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-module.exports = function (token, key) {
+function validateJWT(token, key) {
 
 
     if (!token) return null
@@ -18,3 +18,4 @@ module.exports = function (token, key) {
 
 
 }
+module.exports = validateJWT

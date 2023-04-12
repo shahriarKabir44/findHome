@@ -1,5 +1,5 @@
 const UserRepository = require('../repositories/User.reposotory')
-
+const validateJWT = require('../utils/validateJWT')
 const UserRouter = require('express').Router()
 
 const { upload } = require('../utils/fileManager')
@@ -28,7 +28,10 @@ UserRouter.post('/register', (req, res) => {
             res.send({ newId: id })
         })
 })
-
+UserRouter.get('/isAuthorized', async (req, res) => {
+    let user = await validateJWT(req.headers['token'], process.env.jwtSecretUser)
+    res.send({ user })
+})
 UserRouter.post('/setProfileImage', (req, res) => {
     UserRepository.setProfileImage(req.body)
         .then(id => {
