@@ -15,7 +15,7 @@ UserRouter.post('/uploadProfilePicture', upload.single('file'), (req, res) => {
     res.send({ fileURL })
 })
 
-UserRouter.post('/login', (req, res) => {
+UserRouter.post('/authenticate', (req, res) => {
     UserRepository.authenticateUser(req.body)
         .then(({ user, token }) => {
             res.send({ user, token })

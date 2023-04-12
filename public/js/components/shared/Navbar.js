@@ -58,7 +58,7 @@ async function Navbar(user) {
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sign in</span></a>
                                  <div class="dropdown-menu rounded-0 m-0">
-                                <a href="#" onclick="f()" class="dropdown-item">Login</a>
+                                <a href="#" onclick="toggleLoginModal()" class="dropdown-item">Login</a>
                                 <a href="interior.html" class="dropdown-item">Sign up</a>
                             </div>
                             </div>`}

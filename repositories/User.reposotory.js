@@ -30,10 +30,16 @@ module.exports = class UserRepository {
     }
     static async authenticateUser({ email, password }) {
         let [user] = await promisify({
-            sql: `select id,name,email, phone, nationality,gender, occupation, profileImageURL
-                from user where email=?,password=?;`,
+            sql: `select id,name,email, phone, nationality,gender, occupation, proofileImageURL
+                from user where email=? and password=?;`,
             values: [email, password]
         })
+        if (!user) {
+            return {
+                user: null,
+                token: null
+            }
+        }
         let token = jwt.sign(user, process.env.jwtSecretUser)
         return { user, token }
     }

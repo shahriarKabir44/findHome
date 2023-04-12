@@ -1,5 +1,5 @@
 .modal_auth {
-    display: block;
+    display: none;
     position: fixed;
     z-index: 2000;
     left: 0;
@@ -27,8 +27,8 @@
     font-weight: bold;
 }
 
-.close_auth:hover_auth,
-.close_auth:focus_auth {
+.close_auth:hover,
+.close_auth:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
