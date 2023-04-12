@@ -3,6 +3,7 @@ async function Navbar(user) {
 
     return `
     ${await LoginModal()}
+    ${await RegistrationModal()}
     <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                 <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
@@ -59,7 +60,7 @@ async function Navbar(user) {
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sign in</span></a>
                                  <div class="dropdown-menu rounded-0 m-0">
                                 <a href="#" onclick="toggleLoginModal()" class="dropdown-item">Login</a>
-                                <a href="interior.html" class="dropdown-item">Sign up</a>
+                                <a href="#" class="dropdown-item"  onclick="toggleRegisterModal()">Sign up</a>
                             </div>
                             </div>`}
 

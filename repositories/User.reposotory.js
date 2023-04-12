@@ -1,19 +1,19 @@
 const promisify = require('../utils/promisify')
-const { createInsertQuery } = require('../utils/queryBuilder')
+const { createInsertQuery, createUpdateQuery } = require('../utils/queryBuilder')
 const jwt = require('jsonwebtoken')
 module.exports = class UserRepository {
     static async findUser({ id }) {
         let [user] = await promisify({
-            sql: `select name,email, phone, nationality,gender, occupation, profileImageURL
+            sql: `select name,email, phone, profileImageURL
                 from user where id=?;`,
             values: [id]
         })
         return user
     }
-    static async register({ name, email, phone, nationality, gender, occupation, password }) {
+    static async register({ name, email, phone, password }) {
         await promisify({
-            sql: createInsertQuery('user', ['name', 'email', 'phone', 'nationality', 'gender', 'occupation', 'password']),
-            values: [name, email, phone, nationality, gender, occupation, password]
+            sql: createInsertQuery('user', ['name', 'email', 'phone', 'password']),
+            values: [name, email, phone, password]
         })
         let [{ id }] = await promisify({
             sql: `select id
@@ -28,9 +28,44 @@ module.exports = class UserRepository {
             values: [profileImageURL, id]
         })
     }
+    static async update({ name, email, phone, password, id, profileImageURL }) {
+        let fields = []
+        let filedNames = []
+        if (name) {
+            fields.push(name)
+            filedNames.push('name')
+        }
+        if (email) {
+            fields.push(email)
+            filedNames.push('email')
+        }
+        if (phone) {
+            fields.push(phone)
+            filedNames.push('phone')
+        }
+        if (password) {
+            fields.push(password)
+            filedNames.push('password')
+        }
+        if (profileImageURL) {
+            fields.push(profileImageURL)
+            filedNames.push('profileImageURL')
+        }
+        await promisify({
+            sql: createUpdateQuery('user', filedNames) + 'where id=?;',
+            values: [...fields, id]
+        })
+
+        let user = await UserRepository.findUser({ id })
+        return {
+            user: user,
+            token: jwt.sign({ ...user, type: 'user' }, process.env.jwtSecretUser)
+        }
+
+    }
     static async authenticateUser({ email, password }) {
         let [user] = await promisify({
-            sql: `select id,name,email, phone, nationality,gender, occupation, proofileImageURL
+            sql: `select id,name,email, phone,  profileImageURL
                 from user where email=? and password=?;`,
             values: [email, password]
         })

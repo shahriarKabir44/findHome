@@ -39,4 +39,11 @@ UserRouter.post('/setProfileImage', (req, res) => {
         })
 })
 
+UserRouter.post('/update', (req, res) => {
+    UserRepository.update(req.body)
+        .then((data) => {
+            res.send(data)
+        })
+})
+
 module.exports = UserRouter

@@ -11,9 +11,17 @@ const storage = multer.diskStorage({
             path += `/${companyid}/${propertyid}`
             tempPath += `/${companyid}/${propertyid}`
         }
-
+        else if (filetype == 'profilePicture') {
+            path += `/users`
+            tempPath += `/users`
+        }
+        else if (filetype == 'company') {
+            path += `/companies`
+            tempPath += `/companies`
+        }
 
         if (!fs.existsSync(path)) {
+
             fs.mkdirSync(path, { recursive: true });
         }
         req.fileDir = tempPath

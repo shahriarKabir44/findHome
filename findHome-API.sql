@@ -328,7 +328,7 @@ CREATE TABLE
         `email` varchar(100) NOT NULL,
         `phone` varchar(15) DEFAULT NULL,
         `password` varchar(100) DEFAULT NULL,
-        `proofileImageURL` varchar(100) DEFAULT NULL,
+        `profileImageURL` varchar(100) DEFAULT NULL,
         `nationality` varchar(100) DEFAULT NULL,
         `gender` int DEFAULT NULL,
         `occupation` varchar(40) DEFAULT NULL,
