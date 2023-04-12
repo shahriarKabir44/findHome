@@ -8,6 +8,7 @@ async function render() {
     let { property } = await fetch('http://localhost:4000/property/searchPropertybyId/' + id)
         .then(res => res.json())
     console.log(property)
+    property.images = JSON.parse(property.images)
     return `
 
    
@@ -118,16 +119,13 @@ async function render() {
                                 <tbody>
                                     <tr>
                                         <th><strong>Number of Bed</strong></th>
-                                        <td>3</td>
+                                        <td>${property.numBeds}</td>
                                     </tr>
                                     <tr>
                                         <th><strong>Number of Bath</strong></th>
-                                        <td>3</td>
+                                        <td>${property.numBath}</td>
                                     </tr>
-                                    <tr>
-                                        <th><strong>Number of Varenda</strong></th>
-                                        <td>2</td>
-                                    </tr>
+                                     
 
 
                                 </tbody>
@@ -136,7 +134,16 @@ async function render() {
                     </div>
                 </div>
                 <div class="col-md-6 animated fadeIn">
-                    <img class="img-fluid" src="http://localhost:4000/img/property-1.jpg" alt="">
+                    <div class="container">
+                        <div class="carousel">
+                        ${property.images.map((image, index) => {
+        return `<img src="http://localhost:4000/${image}" class="${index == 0 ? 'active' : ""}">`
+    })}
+                         
+                        <button class="carousel-btn prev">&#8249;</button>
+                        <button class="carousel-btn next">&#8250;</button>
+                    </div>
+    </div>
                 </div>
 
             </div>
@@ -152,8 +159,29 @@ render()
     .then(data => {
         document.getElementById('container').innerHTML = data
 
-    })
+        const images = document.querySelectorAll('.carousel img');
+        const prevButton = document.querySelector('.carousel-btn.prev');
+        const nextButton = document.querySelector('.carousel-btn.next');
+        let currentImageIndex = 0;
 
+        function showImage(index) {
+            images[currentImageIndex].classList.remove('active');
+            images[index].classList.add('active');
+            currentImageIndex = index;
+        }
+
+        prevButton.addEventListener('click', () => {
+            const index = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+            console.log(index)
+            showImage(index);
+        });
+
+        nextButton.addEventListener('click', () => {
+            const index = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+            showImage(index);
+        });
+
+    })
 
 
 //     .then(response => response.json())
