@@ -94,14 +94,39 @@ async function render() {
                             
                         </div>
                     </div>
+                <br><br><br><br>
+                  ${!offerInfo ? `  
                     <div class="col-lg-6 col-md-6">
                         <h5 class=" mb-4">Make an offer</h5>
                          <p>Want to buy? Make an offer to ${company.name}</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input id="offeramt" class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="number" value="" placeholder="Your offer">
+                            <input id="offerammount" class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="number" value="" placeholder="Your offer">
                             <button onclick="submitOffer('${user?.id}','${id}')" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
                         </div>
-                    </div>
+                    </div>`: ` 
+                        <div class="col-lg-6 col-md-6">
+                            <div style="display: flex !important;
+                            align-items: center;
+                            justify-content: space-between;"
+                        >
+                                <h5 >Your offer</h5>
+                                <button class="btn btn-danger me-2" onclick="cancelOffer('${offerInfo.id}')">Cancel</button>
+
+                            </div>
+                            
+                            <table class="table profile__table">
+                                <tbody>
+                                    <tr>
+                                        <th><strong>Amount</strong></th>
+                                        <td>tk. ${offerInfo.offer}</td>
+                                    </tr>
+                                    <tr>
+                                        <th><strong>Time</strong></th>
+                                        <td>${(new Date(offerInfo.time)).toLocaleString()}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>`}
                     <br><br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -200,14 +225,24 @@ render()
 
     })
 
-function submitOffer(user, id) {
-    console.log(user, id)
-    if (isNaN(user * 1)) {
+async function submitOffer(userId, propertyId) {
+    if (isNaN(userId * 1)) {
         alert('Please login or sign up and try again!')
         return
     }
-
+    await __fetch('offer/create', {
+        offeredBy: userId,
+        propertyId,
+        offer: document.getElementById('offerammount').value
+    })
+    alert('Offer has been placed!')
+    location.reload()
 }
 //     .then(response => response.json())
 
+async function cancelOffer(offerId) {
+    if (!window.confirm('Are you sure you want to cancel?')) return;
 
+    await __fetch('offer/delete/' + offerId)
+    location.reload()
+}

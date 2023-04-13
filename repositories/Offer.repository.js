@@ -33,10 +33,10 @@ module.exports = class OfferRepository {
             values: [time, offer, offeredBy, propertyId]
         })
     }
-    static async delete({ propertyId, offeredBy }) {
+    static async delete({ id }) {
         promisify({
-            sql: `delete from offer where propertyId=? and offeredBy=?;`,
-            values: [propertyId, offeredBy]
+            sql: `delete from offer where id=?;`,
+            values: [id]
         })
     }
 }

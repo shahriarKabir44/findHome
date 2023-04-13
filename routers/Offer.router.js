@@ -14,8 +14,8 @@ OfferRouter.post('/update', (req, res) => {
             res.send({ success: true })
         })
 })
-OfferRouter.post('/delete', (req, res) => {
-    OfferRepository.delete(req.body)
+OfferRouter.get('/delete/:id', (req, res) => {
+    OfferRepository.delete(req.params)
         .then(() => {
             res.send({ success: true })
         })
