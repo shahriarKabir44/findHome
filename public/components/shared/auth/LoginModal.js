@@ -1,7 +1,7 @@
 async function LoginModal() {
 
 	return `
-	<link rel="stylesheet" href="http://localhost:4000/js/components/shared/auth/auth.css" />
+	<link rel="stylesheet" href="http://localhost:4000//components/shared/auth/auth.css" />
 	<div id="modal_auth" class="modal_auth">
 		<div class="modal-content_auth">
 			<span class="close_auth" onclick="toggleLoginModal()" >&times;</span>
