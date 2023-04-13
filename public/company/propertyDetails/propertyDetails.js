@@ -1,6 +1,8 @@
 angular.module('property_details', [])
     .controller('property_details', ($scope) => {
         $scope.images = []
+        $scope.imageCover = []
+        $scope.availableImagesCount = 0
         $scope.onInit = async () => {
             await $scope.checkLoggedIn()
             let params = new URLSearchParams(location.search)
@@ -10,7 +12,10 @@ angular.module('property_details', [])
             }
             let { property } = await __fetch('property/searchPropertybyId/' + id)
             $scope.images = JSON.parse(property.images)
-
+            $scope.images = $scope.images.map((image, index) => {
+                $scope.availableImagesCount++
+                return { image, cover: 0 }
+            })
             if (property == null) {
                 location.href = 'http://localhost:4000/company/dashboard'
             }
@@ -18,6 +23,9 @@ angular.module('property_details', [])
             $scope.$apply()
         }
 
+        $scope.toggleCover = image => {
+            image.cover ^= 1
+        }
 
         $scope.checkLoggedIn = async function () {
             let { company } = await __fetch('company/isAuthorized')

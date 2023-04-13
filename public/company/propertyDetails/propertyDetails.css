@@ -1,0 +1,27 @@
+img.propertyImage {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.imgCover {
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgb(0, 0, 0, .4)
+}
+
+.imgContainer {
+    max-width: 300px;
+    margin: 20px;
+    max-height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.crossbtn {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
