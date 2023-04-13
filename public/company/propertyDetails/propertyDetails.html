@@ -49,19 +49,41 @@
                                 <tbody>
                                     <tr>
                                         <th><strong>Type</strong></th>
-                                        <td>{{property.type}}</td>
+                                        <td>
+                                            <select class="form-control" id="type" ng-model="property.type">
+                                                <option value="">Select type</option>
+                                                <option value="Residential">Residential</option>
+                                                <option value="Commercial">Commercial</option>
+                                            </select>
+                                        </td>
+
                                     </tr>
                                     <tr>
                                         <th><strong>Location</strong></th>
-                                        <td>{{property.location}}</td>
+                                        <td><select class="form-control" id="location" ng-model="property.location">
+                                                <option value="">Select location</option>
+                                                <option value="New York">New York</option>
+                                                <option value="Los Angeles">Los Angeles</option>
+                                                <option value="Chicago">Chicago</option>
+                                                <option value="Houston">Houston</option>
+                                            </select></td>
+
                                     </tr>
                                     <tr>
                                         <th><strong>Price</strong></th>
-                                        <td>BDT {{property.price}}</td>
+
+                                        <td>
+                                            <input class="form-control" type="text" name="" ng-model="property.price">
+                                        </td>
+
+
                                     </tr>
                                     <tr>
                                         <th><strong>Unit Size</strong></th>
-                                        <td>{{property.area}} Sqft</td>
+                                        <td>
+                                            <input class="form-control" type="text" name="" ng-model="property.area">
+
+                                        </td>
                                     </tr>
 
                                 </tbody>
@@ -71,13 +93,16 @@
 
                     <br><br>
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title mt-4">Additional Information</h4>
+                        <div class="panel-heading"
+                            style="display: flex; align-items: center;justify-content: space-between;margin: 10px;">
+                            <h4 class="panel-title ">Additional Information</h4>
+
                         </div>
                         <div class="panel-body">
                             <div class="card">
                                 <div class="card-body">
-                                    <p>{{property.info}}</p>
+                                    <textarea name="" class="form-control" ng-model="property.info" cols="30"
+                                        rows="10"></textarea>
                                 </div>
                             </div>
 
@@ -97,15 +122,16 @@
                                 <tbody>
                                     <tr>
                                         <th><strong>Number of Bed</strong></th>
-                                        <td>{{property.numBeds}}</td>
+                                        <td>
+                                            <input class="form-control" type="text" name="" ng-model="property.numBeds">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th><strong>Number of Bath</strong></th>
-                                        <td>{{property.numBath}}</td>
+                                        <td>
+                                            <input class="form-control" type="text" name="" ng-model="property.numBath">
+                                        </td>
                                     </tr>
-
-
-
                                 </tbody>
                             </table>
                         </div>
@@ -120,11 +146,18 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="operationsContainer" style="display: flex;
+                        gap: 30px;
+                        margin: 30px;
+                        justify-content: space-between;">
+                    <button ng-click="confirmUpdate()" class="btn btn-success">Confirm update</button>
+                    <button class="btn btn-danger">Cancel</button>
+                </div>
             </div>
         </div>
+
     </div>
-    </div>
+
 </body>
 
 </html>

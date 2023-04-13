@@ -1,5 +1,6 @@
 angular.module('property_details', [])
     .controller('property_details', ($scope) => {
+        $scope.images = []
         $scope.onInit = async () => {
             await $scope.checkLoggedIn()
             let params = new URLSearchParams(location.search)
@@ -8,7 +9,8 @@ angular.module('property_details', [])
                 location.href = 'http://localhost:4000/company/dashboard'
             }
             let { property } = await __fetch('property/searchPropertybyId/' + id)
-            console.log(property)
+            $scope.images = JSON.parse(property.images)
+
             if (property == null) {
                 location.href = 'http://localhost:4000/company/dashboard'
             }
@@ -26,5 +28,9 @@ angular.module('property_details', [])
             }
             company.image = 'http://localhost:4000/' + company.image
             $scope.$apply()
+        }
+        $scope.confirmUpdate = async () => {
+            await __fetch('property/update', $scope.property)
+            alert('Updated property')
         }
     })
