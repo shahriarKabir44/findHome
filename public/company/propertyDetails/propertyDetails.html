@@ -155,6 +155,21 @@
                                 </div>
                                 <img class="propertyImage" src="http://localhost:4000/{{image.image}}" alt="">
                             </div>
+                            <div ng-if="prevewImages.length+activeMainImages<3" class="form-group">
+                                <p>image {{prevewImages.length+activeMainImages}} </p>
+                                <input type="file" accept="image/*"
+                                    onchange="angular.element(this).scope().uploadImage(event)">
+
+                            </div>
+
+                            <div ng-repeat="prevewImage in prevewImages track by $index" ng-if="prevewImage!=null"
+                                class="imgContainer">
+                                <div ng-click="deleteTempImage(prevewImage[1])" class="crossbtn">
+                                    <i class="fa-solid fa-circle-xmark"></i>
+                                </div>
+                                <img class="propertyImage" src="{{prevewImage[0]}}" alt="">
+                            </div>
+
 
                         </div>
                     </div>
