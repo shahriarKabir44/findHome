@@ -8,8 +8,8 @@ const storage = multer.diskStorage({
         let tempPath = 'uploads'
         if (filetype == 'property') {
             const { propertyid, companyid } = req.headers
-            path += `/${companyid}/${propertyid}`
-            tempPath += `/${companyid}/${propertyid}`
+            path += `/properties/${companyid}/${propertyid}`
+            tempPath += `/properties/${companyid}/${propertyid}`
         }
         else if (filetype == 'profilePicture') {
             path += `/users`

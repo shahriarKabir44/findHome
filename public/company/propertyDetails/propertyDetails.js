@@ -25,7 +25,6 @@ angular.module('property_details', [])
 
             $scope.activeMainImages = $scope.images.length
 
-            console.log($scope.availableImagesCount)
             $scope.property = property
             $scope.$apply()
         }
@@ -37,7 +36,6 @@ angular.module('property_details', [])
             }
             else {
                 $scope.activeMainImages++
-                console.log($scope.activeMainImages + $scope.prevewImages.length)
                 while ($scope.activeMainImages + $scope.prevewImages.length > 3)
                     $scope.prevewImages.pop()
             }
@@ -55,7 +53,35 @@ angular.module('property_details', [])
         }
         $scope.confirmUpdate = async () => {
             await __fetch('property/update', $scope.property)
+            let toDelete = []
+            let toKeep = []
+            $scope.images.forEach(({ image, cover }) => {
+                if (cover) {
+                    toDelete.push(image)
+                    __fetch('property/deleteImage', { image })
+                }
+                else {
+                    toKeep.push(image)
+                }
+            })
+            __fetch('property/update', { id: $scope.property.id, images: JSON.stringify(toKeep) })
+            let promises = []
+            let urls = []
+            $scope.prevewImages.forEach(([image, index]) => {
+                promises.push(uploadImage(image, 'property/uploadImage', {
+                    filetype: "property",
+                    fileindex: (new Date()) * 1 + index,
+                    propertyid: $scope.property.id,
+                    companyid: $scope.property.sellerId
+                }).then(({ fileURL }) => {
+                    urls.push(fileURL)
+                }))
+            })
+            await Promise.all(promises)
+            await __fetch('property/update', { images: JSON.stringify([...urls, ...toKeep]), id: $scope.property.id })
+
             alert('Updated property')
+            location.reload()
         }
 
         $scope.uploadImage = function (event) {
@@ -71,7 +97,6 @@ angular.module('property_details', [])
         };
 
         $scope.deleteTempImage = index => {
-            console.log(index)
             $scope.prevewImages = $scope.prevewImages.filter((img, ind) => img[1] != index)
         }
     })
