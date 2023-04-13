@@ -1,7 +1,7 @@
 async function RegistrationModal() {
 
     return `
-	<link rel="stylesheet" href="http://localhost:4000//components/shared/auth/auth.css" />
+	<link rel="stylesheet" href="http://localhost:4000/components/shared/auth/auth.css" />
 	<div id="modal_auth_register" class="modal_auth">
 		<div class="modal-content_auth">
 			<span class="close_auth" onclick="toggleRegisterModal()" >&times;</span>
