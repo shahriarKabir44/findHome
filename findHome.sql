@@ -50,7 +50,7 @@ CREATE TABLE `company` (
   `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `company_UN` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -83,11 +83,13 @@ CREATE TABLE `offer` (
   `propertyId` int DEFAULT NULL,
   `offer` double DEFAULT NULL,
   `time` double DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
   KEY `offer_FK` (`propertyId`),
   KEY `offer_FK_1` (`offeredBy`),
   CONSTRAINT `offer_FK` FOREIGN KEY (`propertyId`) REFERENCES `property` (`id`),
   CONSTRAINT `offer_FK_1` FOREIGN KEY (`offeredBy`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +117,7 @@ CREATE TABLE `property` (
   KEY `property_FK_1` (`sellerId`),
   CONSTRAINT `property__FK` FOREIGN KEY (`newOwner`) REFERENCES `user` (`id`),
   CONSTRAINT `property_FK_1` FOREIGN KEY (`sellerId`) REFERENCES `company` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,4 +149,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-13 12:50:11
+-- Dump completed on 2023-04-13 15:49:01

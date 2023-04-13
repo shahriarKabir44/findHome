@@ -34,13 +34,10 @@ function startExpress() {
     app.use('/admin', require('./routers/Admin.router'))
     app.use('/offer', require('./routers/Offer.router'))
 
-    app.get('/home', (req, res) => {
-        res.sendFile((__dirname + '/public/components/home/index.html'));
-    })
-    app.get('/propertyDetails', (req, res) => {
-        res.send(fs.readFileSync(__dirname + '/public/components/propertyDetails/propertydetails-sv.html').toString());
+    app.use('/', require('./controllers/Home.Controller'))
+    app.use('/company', require('./controllers/Company.Controller'))
+    app.use('/admin', require('./controllers/Admin.Controller'))
 
-    })
     app.listen(process.env.PORT || 4000)
     app.get('/a/:id', (req, res) => {
         res.send({ post: "test data" + req.params.id })

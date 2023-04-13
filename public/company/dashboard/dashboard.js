@@ -13,7 +13,7 @@ app.controller('myCtrl', function ($scope) {
         $scope.company = company
 
         if (!company) {
-            location.href = 'http://localhost:4000/company/login/login.html'
+            location.href = 'http://localhost:4000/company/login'
         }
         company.image = 'http://localhost:4000/' + company.image
         $scope.$apply()

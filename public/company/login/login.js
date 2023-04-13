@@ -6,7 +6,7 @@ angular.module('login-app', []).controller('login-controller', function ($scope)
     $scope.checkLoggedIn = async function () {
         let { company } = await __fetch('company/isAuthorized')
         if (company) {
-            location.href = 'http://localhost:4000/company/dashboard/dashboard.html'
+            location.href = 'http://localhost:4000/company/dashboard'
         }
     }
 
@@ -16,7 +16,7 @@ angular.module('login-app', []).controller('login-controller', function ($scope)
             email, password
         })
         localStorage.setItem('token', token)
-        location.href = 'http://localhost:4000/company/dashboard/dashboard.html'
+        location.href = 'http://localhost:4000/company/dashboard'
 
     }
 });

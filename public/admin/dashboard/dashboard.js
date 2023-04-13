@@ -7,7 +7,7 @@ app.controller('myCtrl', function ($scope) {
         let { admin } = await __fetch('admin/isAuthorized')
         if (!admin) {
             localStorage.clear()
-            location.href = 'http://localhost:4000/admin/login/login.html'
+            location.href = 'http://localhost:4000/admin/login'
         }
     }
 
