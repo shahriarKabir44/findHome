@@ -35,8 +35,6 @@ function startExpress() {
     app.use('/offer', require('./routers/Offer.router'))
 
     app.use('/', require('./controllers/Home.Controller'))
-    app.use('/company', require('./controllers/Company.Controller'))
-    app.use('/admin', require('./controllers/Admin.Controller'))
 
     app.listen(process.env.PORT || 4000)
     app.get('/a/:id', (req, res) => {

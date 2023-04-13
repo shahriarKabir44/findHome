@@ -4,6 +4,21 @@ const { upload } = require("../utils/fileManager");
 
 const validateJWT = require('../utils/validateJWT')
 
+let path = __dirname.split('/')
+path.pop()
+path = path.join('/')
+CompanyRouter.get('/login', (req, res) => {
+    res.sendFile(path + '/public/company/login/login.html')
+})
+
+CompanyRouter.get('/dashboard', (req, res) => {
+    res.sendFile(path + '/public/company/dashboard/dashboard.html')
+})
+
+CompanyRouter.get('/viewProperty', (req, res) => {
+    res.sendFile(path + '/public/company/propertyDetails/propertyDetails.html')
+})
+
 CompanyRouter.post('/uploadImage', upload.single('file'), (req, res) => {
     let fileURL = req.fileDir + '/' + req.filename
     let id = req.headers.userid

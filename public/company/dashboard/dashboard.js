@@ -20,9 +20,7 @@ app.controller('myCtrl', function ($scope) {
     }
 
     $scope.viewProperty = async (propertyId) => {
-        $scope.selectedProperty = {}
-        let { property } = await __fetch('property/searchPropertybyId/' + propertyId)
-        $scope.selectedProperty = property
+        location.href = 'http://localhost:4000/company/viewProperty?id=' + propertyId
 
     }
 
@@ -39,7 +37,6 @@ app.controller('myCtrl', function ($scope) {
         $scope.ownedProperties = await __fetch('company/getOwnedProperties/' + $scope.company.id)
         $scope.ownedProperties = $scope.ownedProperties.map(property => {
             property.images = JSON.parse(property.images)
-            if (property.newOwnerName == null) property.newOwnerName = '--'
             property.images = property.images.map(image => 'http://localhost:4000/' + image)
             return property
         });

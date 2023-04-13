@@ -79,6 +79,7 @@ module.exports = class CompanyRepository {
     static async getOwnedProperties({ companyId }) {
         return promisify({
             sql: `select
+                    id,
                     images,
                     price,
                     location, (
@@ -86,7 +87,9 @@ module.exports = class CompanyRepository {
                         from user
                         where
                             id = property.newOwner
-                    ) as newOwnerName
+                    ) as newOwnerName,
+                    (select count(id) from offer where offer.propertyId = property.id)
+                        as numOffers
                 from property
                 where property.sellerId = ?; `,
             values: [companyId]
