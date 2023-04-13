@@ -64,6 +64,10 @@ setTimeout(() => {
         }
         data.profileImage = null
         let { newId } = await __fetch('user/register', data)
+        if (!newId) {
+            alert(`Email or Phone Number is already taken`)
+            return
+        }
         let { fileURL } = await uploadImage(newUserRegister.profileImageURL, 'user/uploadProfilePicture', {
             filetype: "profilePicture",
             userid: newId

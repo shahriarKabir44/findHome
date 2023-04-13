@@ -68,6 +68,7 @@ app.controller('myCtrl', function ($scope) {
         await Promise.all(promises)
         await __fetch('property/update', { images: JSON.stringify(urls), id: newId })
         $("#addPropertyModal").modal('hide')
+        $scope.getOwnedProperties()
 
     }
 

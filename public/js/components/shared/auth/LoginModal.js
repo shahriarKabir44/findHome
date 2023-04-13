@@ -30,8 +30,14 @@ function submitLoginInfo() {
 
 	console.log(newUser)
 	__fetch('user/authenticate', newUser)
-		.then(user => {
-			alert(JSON.stringify(user))
+		.then(({ user, token }) => {
+			if (user) {
+				localStorage.setItem('token', token)
+				location.reload()
+			}
+			else {
+				alert('Invalid credentials')
+			}
 		})
 }
 
