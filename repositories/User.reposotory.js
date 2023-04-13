@@ -11,16 +11,21 @@ module.exports = class UserRepository {
         return user
     }
     static async register({ name, email, phone, password }) {
-        await promisify({
-            sql: createInsertQuery('user', ['name', 'email', 'phone', 'password']),
-            values: [name, email, phone, password]
-        })
-        let [{ id }] = await promisify({
-            sql: `select id
+        try {
+            await promisify({
+                sql: createInsertQuery('user', ['name', 'email', 'phone', 'password']),
+                values: [name, email, phone, password]
+            })
+            let [{ id }] = await promisify({
+                sql: `select id
                 from user where email=?;`,
-            values: [email]
-        })
-        return id
+                values: [email]
+            })
+            return id
+        } catch (error) {
+            return null
+        }
+
     }
     static async setProfileImage({ id, profileImageURL }) {
         promisify({
