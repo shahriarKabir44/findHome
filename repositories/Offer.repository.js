@@ -11,6 +11,14 @@ module.exports = class OfferRepository {
             values: [offeredBy, propertyId, offer, time]
         })
     }
+    static async checkMyOffer({ offeredBy, propertyId }) {
+        let [offer] = await promisify({
+            sql: `select * from offer where
+                offeredBy = ? and propertyId=?;`,
+            values: [offeredBy, propertyId]
+        })
+        return offer
+    }
     static async getPropertyOffers({ propertyId }) {
         return promisify({
             sql: `select * from offers  where propertyId=?;`,

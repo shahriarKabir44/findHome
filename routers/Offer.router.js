@@ -28,4 +28,11 @@ OfferRouter.get('/getPropertyOffers/:propertyId', (req, res) => {
         })
 })
 
+OfferRouter.post('/checkMyOffer', (req, res) => {
+    OfferRepository.checkMyOffer(req.body)
+        .then(offer => {
+            res.send({ offer })
+        })
+})
+
 module.exports = OfferRouter

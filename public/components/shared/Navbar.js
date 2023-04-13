@@ -1,12 +1,20 @@
 async function Navbar(user) {
 
+    console.log(user)
 
     return `
+    <style>
+        img.userPhoto {
+            max-width: 70px;
+            max-height: 70px;
+        }
+    </style>
     ${await LoginModal()}
     ${await RegistrationModal()}
+
     <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
-                <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
+                <a href="http://localhost:4000/home" class="navbar-brand d-flex align-items-center text-center">
                     <div class="icon p-2 me-2">
                         <img class="img-fluid" src="http://localhost:4000/img/icon-deal.png" alt="Icon" style="width: 30px; height: 30px;">
                     </div>
@@ -55,7 +63,10 @@ async function Navbar(user) {
                             </div>
                         </div>`: ''}
                         <div class="notificationbar">
-                            ${user ? ` <a href="login.html" class="fas fa-user"></a>` : `
+                            ${user ? ` <a href="login.html" >
+                                <img class="userPhoto" src="http://localhost:4000/${user.profileImageURL}" />
+
+                            </a>` : `
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sign in</span></a>
                                  <div class="dropdown-menu rounded-0 m-0">

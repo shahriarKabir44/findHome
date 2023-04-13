@@ -1,19 +1,31 @@
 
+
 async function render() {
     let params = new URLSearchParams(location.search)
     let id = (params.get('id'))
     if (id == null) {
-        location.href = 'http://localhost:4000/index.html'
+        location.href = 'http://localhost:4000/home'
     }
-    let { property } = await fetch('http://localhost:4000/property/searchPropertybyId/' + id)
-        .then(res => res.json())
-    let { company } = await fetch('http://localhost:4000/property/getCompanyInfo/' + id).then(res => res.json())
-    console.log(company, id)
+    let { property } = await __fetch('property/searchPropertybyId/' + id)
+
+    if (property == null) {
+        location.href = 'http://localhost:4000/home'
+    }
+    let { company } = await __fetch('property/getCompanyInfo/' + id)
+
+
+    let { user } = await __fetch('user/isAuthorized')
+    let offerInfo = null
+    if (user) {
+        let { offer } = await __fetch('offer/checkMyOffer', { offeredBy: user.id, propertyId: id })
+        offerInfo = offer
+        console.log(offer)
+    }
     property.images = JSON.parse(property.images)
     return `
 
    
-    ${await Navbar()}
+    ${await Navbar(user)}
         <br><br><br><br><br>
 
     ${Header()}
@@ -28,7 +40,6 @@ async function render() {
                 <a href="#">Floor Plan</a>
                 <a href="#">Location Map</a>
                 <a href="contact.html">Contact</a>
-                <a href="#">Add to wishlist</a>
             </div>
         </div>
     </div>
@@ -83,7 +94,14 @@ async function render() {
                             
                         </div>
                     </div>
-
+                    <div class="col-lg-6 col-md-6">
+                        <h5 class=" mb-4">Make an offer</h5>
+                         <p>Want to buy? Make an offer to ${company.name}</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input id="offeramt" class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="number" value="" placeholder="Your offer">
+                            <button onclick="submitOffer('${user?.id}','${id}')" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                        </div>
+                    </div>
                     <br><br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -171,7 +189,7 @@ render()
 
         prevButton.addEventListener('click', () => {
             const index = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
-            console.log(index)
+
             showImage(index);
         });
 
@@ -182,7 +200,14 @@ render()
 
     })
 
+function submitOffer(user, id) {
+    console.log(user, id)
+    if (isNaN(user * 1)) {
+        alert('Please login or sign up and try again!')
+        return
+    }
 
+}
 //     .then(response => response.json())
 
 
