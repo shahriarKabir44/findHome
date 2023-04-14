@@ -209,9 +209,55 @@
                 <div class="col-md-6">
                     <div class="card">
 
-                        <p><strong>Email:</strong> {{company.email}}</p>
-                        <p><strong>Phone:</strong> {{company.phoneNumbers}}</p>
-                        <p><strong>Location:</strong> {{company.location}}</p>
+                        <table class="table profile__table">
+                            <tbody>
+
+                                <tr>
+                                    <th><strong>Location</strong></th>
+                                    <td><select class="form-control" id="location" ng-model="company.location">
+                                            <option value="">Select location</option>
+                                            <option value="New York">New York</option>
+                                            <option value="Los Angeles">Los Angeles</option>
+                                            <option value="Chicago">Chicago</option>
+                                            <option value="Houston">Houston</option>
+                                        </select></td>
+
+                                </tr>
+                                <tr>
+                                    <th><strong>Email</strong></th>
+
+                                    <td>
+                                        <input class="form-control" type="text" name="" ng-model="company.email">
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <th><strong>Phone</strong></th>
+
+                                    <td>
+                                        <input class="form-control" type="text" name="" ng-model="company.phoneNumbers">
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <th><strong>Description</strong></th>
+
+                                    <td>
+                                        <textarea name="" class="form-control" ng-model="company.description" cols="1"
+                                            rows="1"></textarea>
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td> <button class="btn btn-success" ng-click="updateCompanyInfo()">Update
+                                            info</button> </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
                 </div>
             </div>

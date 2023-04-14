@@ -84,6 +84,10 @@ app.controller('myCtrl', function ($scope) {
         $scope.prevewImages[index] = null
     }
 
+    $scope.updateCompanyInfo = async () => {
+        await __fetch('company/update', { ...$scope.company })
+        alert("Information updated successfully")
+    }
 
 
     $scope.getNotifications = async () => {

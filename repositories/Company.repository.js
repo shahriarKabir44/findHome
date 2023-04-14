@@ -20,12 +20,16 @@ module.exports = class CompanyRepository {
         }
 
     }
-    static async update({ id, name, location, image, phoneNumbers, email }) {
+    static async update({ id, name, location, image, phoneNumbers, email, description }) {
         let fields = []
         let fieldNames = []
         if (location) {
             fields.push(location)
             fieldNames.push('location')
+        }
+        if (description) {
+            fields.push(description)
+            fieldNames.push('description')
         }
         if (image) {
             fields.push(image)
@@ -50,7 +54,7 @@ module.exports = class CompanyRepository {
     }
     static async authenticate({ email, password }) {
         let [company] = await promisify({
-            sql: `select id, name, location, image, phoneNumbers, email
+            sql: `select id, name, location, image, phoneNumbers, email,description
                 from company where email = ? and password = ? ;`,
             values: [email, password]
         })

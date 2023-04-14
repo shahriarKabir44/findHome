@@ -51,6 +51,7 @@ CompanyRouter.post('/authenticate', (req, res) => {
 })
 
 CompanyRouter.post('/update', (req, res) => {
+
     CompanyRepository.update(req.body)
         .then(() => {
             res.send({ success: true })
