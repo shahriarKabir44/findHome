@@ -191,7 +191,7 @@ async function render() {
                                         align-items: center;
                                     ">
                                     <div class="card-body">
-                                        <p>${owner.name}</p>
+                                        <p> <a href="http://localhost:4000/userProfile?id=${owner.id}">${owner.name}</a> </p>
                                         <p><strong>Email: </strong> ${owner.email}</p>
                                         <p><strong>Phone: </strong> ${owner.phone}</p>
                                         <p><strong>Paid: </strong>BTD. ${owner.amount}</p>

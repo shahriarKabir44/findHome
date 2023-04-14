@@ -63,4 +63,11 @@ PropertyRouter.post('/filter', (req, res) => {
         })
 })
 
+PropertyRouter.get('/getUserOwnedProperties/:userId', (req, res) => {
+    PropertyRepository.getUserOwnedProperties(req.params)
+        .then(properties => {
+            res.send(properties)
+        })
+})
+
 module.exports = PropertyRouter

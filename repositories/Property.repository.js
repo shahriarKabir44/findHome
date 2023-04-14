@@ -32,6 +32,14 @@ module.exports = class PropertyRepository {
 
         })
     }
+
+    static async getUserOwnedProperties({ userId }) {
+        return promisify({
+            sql: `select * from property where newOwner=?;`,
+            values: [userId]
+        })
+    }
+
     static async setPropertyImages({ id, images }) {
         promisify({
             sql: `${createUpdateQuery('property', ['images'])} where id=?;`,

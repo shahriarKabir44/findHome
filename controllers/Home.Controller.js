@@ -11,6 +11,11 @@ HomeController.get('/search', (req, res) => {
 
 })
 
+HomeController.get('/userProfile', (req, res) => {
+    res.sendFile(path + '/public/components/userProfile/userProfile.html')
+
+})
+
 HomeController.get('/', (req, res) => {
     res.redirect('/home')
 })
