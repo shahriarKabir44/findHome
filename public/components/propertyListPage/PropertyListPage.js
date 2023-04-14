@@ -21,8 +21,12 @@ async function render() {
         ${await Navbar(user)}
         <br><br><br><br><br><br><br><br>
          ${SearchPanel()}
-         <br><br><br><br><br
-      ${await PropertyList(properties)}
+         <br><br><br><br><br>
+         <div class="container">
+            <h3>Properties matching your search</h3>
+            ${await PropertyList(properties)}
+
+         </div>
         ${Footer()}
     `
 }
