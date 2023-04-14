@@ -35,12 +35,8 @@ app.controller('myCtrl', function ($scope) {
         $scope.$apply()
     }
     $scope.selectedCompany = {}
-    $scope.viewCompany = async (id) => {
-        let { company } = await __fetch('company/searchById/' + id)
-        $scope.selectedCompany = company
-        company.image = 'http://localhost:4000/' + company.image
-        $scope.$apply()
-        $("#detailsModal").modal('show')
+    $scope.viewCompany = (id) => {
+        location.href = `http://localhost:4000/viewCompany?id=${id}`
 
     }
     $scope.newCompany = {}
@@ -71,4 +67,8 @@ app.controller('myCtrl', function ($scope) {
         };
         reader.readAsDataURL(files[0]);
     };
+    $scope.logOut = () => {
+        localStorage.clear()
+        location.reload()
+    }
 });

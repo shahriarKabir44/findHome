@@ -50,9 +50,7 @@ async function Navbar(user) {
                             </div>                        
                         </div>
                         
-                        <div class="notificationbar">
-                            <a href="contact.php" class="nav-item nav-link">Contact</a>
-                        </div>
+                       
  
 
                      ${user ? `<div class="notificationbar">
