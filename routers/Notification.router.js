@@ -10,8 +10,8 @@ NotificationRouter.post('/create', (req, res) => {
 
 NotificationRouter.post('/getnotifications', (req, res) => {
     NotificationRepository.getnotifications(req.body)
-        .then(() => {
-            res.send({ success: true });
+        .then((notifications) => {
+            res.send(notifications);
         })
 })
 

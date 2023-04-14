@@ -30,12 +30,45 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <li class="nav-item">
+                <button type="button" ng-click="getNotifications()" class="btn btn-success"
+                    style="background: inherit;">
+                    🔔
+                </button>
+
                 <button type="button" class="btn btn-danger">Log out</button>
             </li>
 
         </ul>
     </nav>
+    <div id="notificationsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
 
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Notification List</h4>
+
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+
+                    <div ng-click="viewNotification(notification)" style="border: 1px solid;
+                                        padding: 11px;
+                                        cursor: pointer;
+                                        margin: 5px;
+                                        border-radius: 5px;" ng-repeat="notification in notifications">
+                        <p style="margin: 0;">{{notification.body}}</p>
+                        <p style="margin: 0;">{{notification.time | date:'MM/dd/yyyy h:mm a'}}</p>
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div class="container" style="margin: 50px;">
         <div class="container-fluid header bg-white p-0">
             <div class=" ">

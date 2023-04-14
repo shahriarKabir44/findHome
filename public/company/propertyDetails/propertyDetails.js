@@ -123,4 +123,18 @@ angular.module('property_details', [])
         $scope.deleteTempImage = index => {
             $scope.prevewImages = $scope.prevewImages.filter((img, ind) => img[1] != index)
         }
+
+
+        $scope.getNotifications = async () => {
+            $scope.notifications = await __fetch('notification/getnotifications', { id: $scope.company.id, pagenumber: 0, type: 2 })
+            $scope.notifications.forEach(notification => {
+                notification.time = (new Date(notification.time)).toLocaleString()
+            })
+            $scope.$apply()
+            $('#notificationsModal').modal('show')
+
+        }
+        $scope.viewNotification = (notification) => {
+            location.href = 'http://localhost:4000/company/viewProperty?id=' + notification.propertyId
+        }
     })

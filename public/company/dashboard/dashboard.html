@@ -44,12 +44,17 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <ul>
-                        <li ng-repeat="notification in notifications">
-                            <p>{{notification.message}}</p>
-                            <p>{{notification.time | date:'MM/dd/yyyy h:mm a'}}</p>
-                        </li>
-                    </ul>
+
+                    <div ng-click="viewNotification(notification)" style="border: 1px solid;
+                                        padding: 11px;
+                                        cursor: pointer;
+                                        margin: 5px;
+                                        border-radius: 5px;" ng-repeat="notification in notifications">
+                        <p style="margin: 0;">{{notification.body}}</p>
+                        <p style="margin: 0;">{{notification.time | date:'MM/dd/yyyy h:mm a'}}</p>
+                    </div>
+
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
