@@ -13,6 +13,10 @@ async function render() {
     }
     let { company } = await __fetch('property/getCompanyInfo/' + id)
 
+    let owner = null
+    if (property.newOwner) {
+        owner = await __fetch('transaction/getPropertyTransaction/' + property.id)
+    }
 
     let { user } = await __fetch('user/isAuthorized')
     let offerInfo = null
@@ -95,7 +99,7 @@ async function render() {
                         </div>
                     </div>
                 <br><br><br><br>
-                  ${!offerInfo ? `  
+                  ${owner ? '' : `${(!offerInfo) ? `  
                     <div class="col-lg-6 col-md-6">
                         <h5 class=" mb-4">Make an offer</h5>
                          <p>Want to buy? Make an offer to ${company.name}</p>
@@ -126,7 +130,7 @@ async function render() {
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>`}
+                        </div>`}`}
                     <br><br>
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -174,12 +178,38 @@ async function render() {
                             
                         </div>
                     </div>
+
+                    ${owner ? `<div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title mt-4">Owned by:</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="card">
+                                <div  style="display: grid;
+                                        grid-template-columns: 50% auto;
+                                        align-items: center;
+                                    ">
+                                    <div class="card-body">
+                                        <p>${owner.name}</p>
+                                        <p><strong>Email: </strong> ${owner.email}</p>
+                                        <p><strong>Phone: </strong> ${owner.phone}</p>
+                                        <p><strong>Paid: </strong>BTD. ${owner.amount}</p>
+                                    </div>
+                                    <img style="width:100%" src="http://localhost:4000/${owner.profileImageURL}" alt="" />
+                                </div>
+                                 
+                            </div>
+                            
+                        </div>
+                    </div>`: ""}
+
                 </div>
                 <div class="col-md-6 animated fadeIn">
                     <div class="container">
                         <div class="carousel">
                         ${property.images.map((image, index) => {
-        return `<img src="http://localhost:4000/${image}" class="${index == 0 ? 'active' : ""}">`
+        return `<img src="http://localhost:4000/${image}" 
+                        class="${index == 0 ? 'active' : ""}">`
     })}
                          
                         <button class="carousel-btn prev">&#8249;</button>

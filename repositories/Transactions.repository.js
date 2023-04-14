@@ -12,7 +12,7 @@ module.exports = class TransactionRepository {
     static async getPropertyTransaction({ propertyId }) {
         let [transaction] = await promisify({
             sql: `select user.name,user.email,user.phone, user.id, user.profileImageURL, 
-            transaction.amont, transaction.time
+            transaction.amount, transaction.time
             from transaction,user where transaction.propertyId = ? and
             transaction.purchasedBy=user.id;`,
             values: [propertyId]
