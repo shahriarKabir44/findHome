@@ -45,6 +45,10 @@ module.exports = class PropertyRepository {
         })
         return property
     }
+
+    static async filter({ }) { }
+
+
     static async update({ id, images, newOwner, location, price, area, numBeds, numBath, info, phase, type }) {
         let fields = []
         let fieldNames = []

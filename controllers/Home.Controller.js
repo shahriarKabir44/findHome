@@ -6,6 +6,11 @@ HomeController.get('/home', (req, res) => {
     res.sendFile((path + '/public/components/home/index.html'));
 })
 
+HomeController.get('/search', (req, res) => {
+    res.sendFile((path + '/public/components/propertyListPage/property-list.html'));
+
+})
+
 HomeController.get('/', (req, res) => {
     res.redirect('/home')
 })
