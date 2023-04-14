@@ -53,4 +53,14 @@ PropertyRouter.post('/update', (req, res) => {
             res.send({ success: true })
         })
 })
+
+
+PropertyRouter.post('/filter', (req, res) => {
+    PropertyRepository.filter(req.body)
+        .then(properties => {
+            console.log(properties)
+            res.send(properties)
+        })
+})
+
 module.exports = PropertyRouter

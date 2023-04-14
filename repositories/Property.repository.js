@@ -46,7 +46,33 @@ module.exports = class PropertyRepository {
         return property
     }
 
-    static async filter({ }) { }
+    static async filter({ location, phase, price, type }) {
+
+        let filterquery = []
+        let values = []
+        if (location != '') {
+            filterquery.push(`location=? `);
+            values.push(location)
+        }
+        if (phase != '') {
+            filterquery.push(`phase=? `);
+            values.push(phase)
+        }
+        if (type != '') {
+            filterquery.push(`type=? `);
+            values.push(type)
+        }
+        if (price != '') {
+            let range = price.split('-')
+            filterquery.push(`price >=? and price <=? `);
+            values = [...values, ...range]
+        }
+        let sql = filterquery.length ? `select * from property where ${filterquery.join(' and ')};` : `select * from property;`
+        return promisify({
+            sql,
+            values
+        })
+    }
 
 
     static async update({ id, images, newOwner, location, price, area, numBeds, numBath, info, phase, type }) {

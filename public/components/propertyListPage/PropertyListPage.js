@@ -3,14 +3,18 @@ async function render() {
 
     console.log(params)
 
-    // let properties = await __fetch('property/filter', params)
-
+    let properties = await __fetch('property/filter', params)
+    properties = properties.map(property => {
+        property.images = JSON.parse(property.images)
+        property.images = property.images.map(image => 'http://localhost:4000/' + image)
+        return property
+    })
 
     let { user } = await __fetch('user/isAuthorized')
 
 
     /* 
-       ${await PropertyList()}
+      
         ${ContactUsPanel()}
     */
     return `
@@ -18,7 +22,7 @@ async function render() {
         <br><br><br><br><br><br><br><br>
          ${SearchPanel()}
          <br><br><br><br><br
-     
+      ${await PropertyList(properties)}
         ${Footer()}
     `
 }

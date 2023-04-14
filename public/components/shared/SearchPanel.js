@@ -1,4 +1,6 @@
 function SearchPanel() {
+    let params = Object.fromEntries(new URLSearchParams(location.search))
+
     return `<div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
             <div class="container">
                 <form id="searchForm" class="row g-2">
@@ -7,34 +9,34 @@ function SearchPanel() {
                             
                             <div class="col-md-3">
                                 <select name="type" class="form-select border-0 py-3">
-                                    <option value="" selected>Property Types</option>
-                                    <option value="Residential">Residential</option>
-                                    <option value="Commercial">Commercial</option>
+                                    <option value="" ${params?.type == "" ? "selected" : ""} >Property Types</option>
+                                    <option value="Residential" ${params?.type == "Residential" ? "selected" : ""} >Residential</option>
+                                    <option value="Commercial" ${params?.type == "Commercial" ? "selected" : ""} >Commercial</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select name="phase" class="form-select border-0 py-3">
-                                    <option value="" selected>Property Phase</option>
-                                    <option value="Upcoming">Upcoming</option>
-                                    <option value="Ongoing">Ongoing</option>
-                                    <option value="Completed">Completed</option>
+                                    <option ${params?.phase == "" ? "selected" : ""} value="" selected>Property Phase</option>
+                                    <option ${params?.phase == "Upcoming" ? "selected" : ""} value="Upcoming">Upcoming</option>
+                                    <option ${params?.phase == "Ongoing" ? "selected" : ""} value="Ongoing">Ongoing</option>
+                                    <option ${params?.phase == "Completed" ? "selected" : ""} value="Completed">Completed</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select name="price" class="form-select border-0 py-3">
-                                    <option value="" selected>Price</option>
-                                    <option value="5000000-7000000">50,00000-70,00000</option>
-                                    <option value="7000000-10000000">70,00000-1,0000000</option>
-                                    <option value="10000000-15000000">1,00,00000-1,50,00000</option>
+                                    <option ${params?.price == "" ? "selected" : ""}  value="" selected>Price</option>
+                                    <option ${params?.price == "5000000-7000000" ? "selected" : ""}  value="5000000-7000000">50,00000-70,00000</option>
+                                    <option ${params?.price == "7000000-10000000" ? "selected" : ""}  value="7000000-10000000">70,00000-1,0000000</option>
+                                    <option ${params?.price == "10000000-15000000" ? "selected" : ""}  value="10000000-15000000">1,00,00000-1,50,00000</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
                                 <select  name="location" class="form-select border-0 py-3">
-                                    <option value="">Select location</option>
-                                    <option value="New York">New York</option>
-                                    <option value="Los Angeles">Los Angeles</option>
-                                    <option value="Chicago">Chicago</option>
-                                    <option value="Houston">Houston</option>
+                                    <option  ${params?.location == "" ? "selected" : ""}  value="">Select location</option>
+                                    <option  ${params?.location == "" ? "New York" : ""}  value="New York">New York</option>
+                                    <option  ${params?.location == "" ? "Los Angeles" : ""}  value="Los Angeles">Los Angeles</option>
+                                    <option  ${params?.location == "" ? "Chicago" : ""}  value="Chicago">Chicago</option>
+                                    <option  ${params?.location == "" ? "Houston" : ""}  value="Houston">Houston</option>
                                 </select>
                             </div>
                         </div>
