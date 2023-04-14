@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 module.exports = class UserRepository {
     static async findUser({ id }) {
         let [user] = await promisify({
-            sql: `select name,email, phone, profileImageURL
+            sql: `select name,email, phone,id, profileImageURL
                 from user where id=?;`,
             values: [id]
         })

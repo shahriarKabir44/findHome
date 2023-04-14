@@ -4,10 +4,16 @@ const UserRouter = require('express').Router()
 
 const { upload } = require('../utils/fileManager')
 UserRouter.get('/findUser/:id', (req, res) => {
-    UserRepository.findUser(req.params)
-        .then(user => {
-            res.send({ user })
-        })
+    console.log(req.params)
+    try {
+        UserRepository.findUser(req.params)
+            .then(user => {
+                res.send(user)
+            })
+    } catch (error) {
+        res.send({ user: null })
+    }
+
 })
 
 UserRouter.post('/uploadProfilePicture', upload.single('file'), (req, res) => {

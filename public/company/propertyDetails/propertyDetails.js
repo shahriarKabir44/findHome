@@ -22,8 +22,9 @@ angular.module('property_details', [])
         }
         $scope.availableImagesCount = []
 
-        $scope.getOwnerInfo = async (propertyId) => {
-            $scope.propertyOwner = await __fetch('property/getOwnerInfo/', +propertyId)
+        $scope.getOwnerInfo = async (ownerId) => {
+            $scope.propertyOwner = await __fetch(`user/findUser/${ownerId}`)
+            $scope.$apply()
         }
         $scope.onInit = async () => {
             await $scope.checkLoggedIn()
@@ -40,9 +41,14 @@ angular.module('property_details', [])
             if (property == null) {
                 location.href = 'http://localhost:4000/company/dashboard'
             }
-
+            if (property.newOwner) {
+                await $scope.getOwnerInfo(property.newOwner)
+            }
+            else {
+                $scope.getOffers(id)
+            }
             $scope.activeMainImages = $scope.images.length
-            $scope.getOffers(id)
+
             $scope.property = property
             $scope.$apply()
         }
