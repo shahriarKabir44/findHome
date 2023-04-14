@@ -44,8 +44,8 @@ async function Navbar(user) {
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="construction.html" class="dropdown-item">Construction</a>
-                                    <a href="interior.html" class="dropdown-item">Interior Solution</a>
+                                    <a href="http://localhost:4000/construction" class="dropdown-item">Construction</a>
+                                    <a href="http://localhost:4000/interior" class="dropdown-item">Interior Solution</a>
                                 </div>
                             </div>                        
                         </div>
@@ -64,8 +64,22 @@ async function Navbar(user) {
                             </div>
                         </div>`: ''}
                         <div class="notificationbar">
-                            ${user ? ` <a href="http://localhost:4000/userProfile/?id=${user.id}" >
-                                <img class="userPhoto" src="http://localhost:4000/${user.profileImageURL}" />
+                            ${user ? `
+                            
+                            <div class="notificationbar">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                                    <img class="userPhoto" src="http://localhost:4000/${user.profileImageURL}" />
+                                </a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a  href="http://localhost:4000/userProfile/?id=${user.id}"  class="dropdown-item">${user.name}</a>
+                                    <a href="#" onclick="logout()" class="dropdown-item">Log out</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+                            
                             </a>` : `
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Sign in</span></a>
@@ -85,3 +99,7 @@ async function Navbar(user) {
         </div>`
 }
 
+function logout() {
+    localStorage.clear()
+    location.reload()
+}
