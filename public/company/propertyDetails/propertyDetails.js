@@ -137,4 +137,8 @@ angular.module('property_details', [])
         $scope.viewNotification = (notification) => {
             location.href = 'http://localhost:4000/company/viewProperty?id=' + notification.propertyId
         }
+        $scope.logOut = () => {
+            localStorage.clear()
+            location.href = 'http://localhost:4000/company/login'
+        }
     })
