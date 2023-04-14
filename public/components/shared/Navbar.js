@@ -64,7 +64,7 @@ async function Navbar(user) {
                             </div>
                         </div>`: ''}
                         <div class="notificationbar">
-                            ${user ? ` <a href="login.html" >
+                            ${user ? ` <a href="http://localhost:4000/userProfile/?id=${user.id}" >
                                 <img class="userPhoto" src="http://localhost:4000/${user.profileImageURL}" />
 
                             </a>` : `
