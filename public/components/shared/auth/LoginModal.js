@@ -2,7 +2,7 @@ async function LoginModal() {
 
 	return `
 	<link rel="stylesheet" href="http://localhost:4000/components/shared/modal.css" />
-	<div id="modal_" class="modal_">
+	<div id="modal_login" class="modal_">
 		<div class="modal-content_">
 			<span class="close_" onclick="toggleLoginModal()" >&times;</span>
 			<div   id="login-form_">
@@ -43,11 +43,11 @@ function submitLoginInfo() {
 
 
 function toggleLoginModal() {
-	let style = document.getElementById('modal_').style.display
+	let style = document.getElementById('modal_login').style.display
 	if (style == '') {
-		document.getElementById('modal_').style.display = 'block'
+		document.getElementById('modal_login').style.display = 'block'
 		return
 	}
-	document.getElementById('modal_').style.display = style == 'block' ? 'none' : 'block'
+	document.getElementById('modal_login').style.display = style == 'block' ? 'none' : 'block'
 }
 

@@ -9,9 +9,10 @@ async function Navbar(user) {
             max-height: 70px;
         }
     </style>
+    ${NotificationsModal()}
+
     ${await LoginModal()}
     ${await RegistrationModal()}
-
     <div class="container-fluid nav-bar bg-transparent">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                 <a href="http://localhost:4000/home" class="navbar-brand d-flex align-items-center text-center">
@@ -56,10 +57,10 @@ async function Navbar(user) {
 
                      ${user ? `<div class="notificationbar">
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><span
+                                <div onclick="toggleNotificationModal('${user.id}')"   class="nav-link dropdown-toggle"  ><span
                                         class="label label-pill label-danger count" style="border-radius:10px;"></span>
-                                    <span class="fas fa-bell" style="font-size:18px;"></span></a>
-                                <ul class="dropdown-menu2"></ul>
+                                    <span class="fas fa-bell" style="font-size:18px;"></span></div>
+                                 
                             </div>
                         </div>`: ''}
                         <div class="notificationbar">
