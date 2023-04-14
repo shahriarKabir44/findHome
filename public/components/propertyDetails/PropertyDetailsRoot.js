@@ -101,7 +101,7 @@ async function render() {
                          <p>Want to buy? Make an offer to ${company.name}</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
                             <input id="offerammount" class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="number" value="" placeholder="Your offer">
-                            <button onclick="submitOffer('${user?.id}','${id}')" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            <button onclick="submitOffer('${user?.id}','${id}','${company.id}')" type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
                         </div>
                     </div>`: ` 
                         <div class="col-lg-6 col-md-6">
@@ -225,7 +225,7 @@ render()
 
     })
 
-async function submitOffer(userId, propertyId) {
+async function submitOffer(userId, propertyId, companyId) {
     if (isNaN(userId * 1)) {
         alert('Please login or sign up and try again!')
         return
@@ -233,7 +233,8 @@ async function submitOffer(userId, propertyId) {
     await __fetch('offer/create', {
         offeredBy: userId,
         propertyId,
-        offer: document.getElementById('offerammount').value
+        offer: document.getElementById('offerammount').value,
+        companyId
     })
     alert('Offer has been placed!')
     location.reload()

@@ -83,4 +83,13 @@ app.controller('myCtrl', function ($scope) {
     $scope.removePhoto = (index) => {
         $scope.prevewImages[index] = null
     }
+
+
+
+    $scope.getNotifications = async () => {
+        $scope.notifications = await __fetch('notification/getnotifications', { id: $scope.company.id, pagenumber: 0, type: 2 })
+
+        $('#notificationsModal').modal('show')
+
+    }
 });

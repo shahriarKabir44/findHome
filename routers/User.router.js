@@ -1,4 +1,4 @@
-const UserRepository = require('../repositories/User.reposotory')
+const UserRepository = require('../repositories/User.repository')
 const validateJWT = require('../utils/validateJWT')
 const UserRouter = require('express').Router()
 
