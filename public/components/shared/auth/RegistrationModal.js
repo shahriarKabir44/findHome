@@ -2,30 +2,30 @@ async function RegistrationModal() {
 
     return `
 	<link rel="stylesheet" href="http://localhost:4000/components/shared/auth/auth.css" />
-	<div id="modal_auth_register" class="modal_auth">
-		<div class="modal-content_auth">
-			<span class="close_auth" onclick="toggleRegisterModal()" >&times;</span>
-			<form   id="register_form_auth_reg">
+	<div id="modal__register" class="modal_">
+		<div class="modal-content_">
+			<span class="close_" onclick="toggleRegisterModal()" >&times;</span>
+			<form   id="register_form__reg">
 				<h2>Sign up</h2>
-				<div id="error-message_auth_reg" class="error"></div>
-				<div id="success-message_auth_reg" class="success"></div>
+				<div id="error-message__reg" class="error"></div>
+				<div id="success-message__reg" class="success"></div>
 				<label>Name</label>
-				<input type="text" id="name" name="name" class="form-control_auth" required>
+				<input type="text" id="name" name="name" class="form-control_" required>
 				<label>Email</label>
-				<input type="email" id="email" name="email" class="form-control_auth" required>
+				<input type="email" id="email" name="email" class="form-control_" required>
                 <label>Phone</label>
-				<input type="tel" id="phone" name="phone" class="form-control_auth" required>
+				<input type="tel" id="phone" name="phone" class="form-control_" required>
 				<label>Password</label>
-				<input type="password" id="password" name="password" class="form-control_auth" required>
+				<input type="password" id="password" name="password" class="form-control_" required>
                 
                 <label>Profile picture</label>
-                <input name="profileImage"  type="file"  class="form-control_auth"  id="image1_reg">
+                <input name="profileImage"  type="file"  class="form-control_"  id="image1_reg">
 
                 <label>Preview</label>
                 <img style="max-width: calc(100% - 20px);
                             margin: 10px;"
                             src="" alt="" id="reg_prev" />
- 				<button type="submit" class="btn_auth">register</button>
+ 				<button type="submit" class="btn_">register</button>
 			</form>
 		</div>
 	</div>`
@@ -33,7 +33,7 @@ async function RegistrationModal() {
 
 
 function toggleRegisterModal() {
-    let el = document.getElementById('modal_auth_register')
+    let el = document.getElementById('modal__register')
     let style = el.style.display
     if (style == '') {
         el.style.display = 'block'
@@ -55,9 +55,9 @@ setTimeout(() => {
         };
         reader.readAsDataURL(files[0]);
     }
-    document.getElementById('register_form_auth_reg').onsubmit = async (event) => {
+    document.getElementById('register_form__reg').onsubmit = async (event) => {
         event.preventDefault();
-        let formData = new FormData(document.getElementById('register_form_auth_reg'));
+        let formData = new FormData(document.getElementById('register_form__reg'));
         const data = {};
         for (const [key, value] of formData.entries()) {
             data[key] = value;

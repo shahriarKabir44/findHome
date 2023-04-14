@@ -1,4 +1,4 @@
-.modal_auth {
+.modal_ {
     display: none;
     position: fixed;
     z-index: 2000;
@@ -11,7 +11,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.modal-content_auth {
+.modal-content_ {
     background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;
@@ -20,21 +20,21 @@
     max-width: 500px;
 }
 
-.close_auth {
+.close_ {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close_auth:hover,
-.close_auth:focus {
+.close_:hover,
+.close_:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-.form-control_auth {
+.form-control_ {
     display: block;
     width: 100%;
     padding: 10px;
@@ -43,7 +43,7 @@
     margin-bottom: 20px;
 }
 
-.btn_auth {
+.btn_ {
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -54,17 +54,17 @@
     margin-bottom: 20px;
 }
 
-.btn:hover_auth {
+.btn:hover_ {
     background-color: #45a049;
 }
 
-.error_auth {
+.error_ {
     color: red;
     font-size: 12px;
     margin-bottom: 10px;
 }
 
-.success_auth {
+.success_ {
     color: green;
     font-size: 12px;
     margin-bottom: 10px;

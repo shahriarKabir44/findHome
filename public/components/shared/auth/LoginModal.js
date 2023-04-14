@@ -2,18 +2,18 @@ async function LoginModal() {
 
 	return `
 	<link rel="stylesheet" href="http://localhost:4000/components/shared/auth/auth.css" />
-	<div id="modal_auth" class="modal_auth">
-		<div class="modal-content_auth">
-			<span class="close_auth" onclick="toggleLoginModal()" >&times;</span>
-			<div   id="login-form_auth">
+	<div id="modal_" class="modal_">
+		<div class="modal-content_">
+			<span class="close_" onclick="toggleLoginModal()" >&times;</span>
+			<div   id="login-form_">
 				<h2>Login</h2>
-				<div id="error-message_auth" class="error"></div>
-				<div id="success-message_auth" class="success"></div>
+				<div id="error-message_" class="error"></div>
+				<div id="success-message_" class="success"></div>
 				<label>Email</label>
-				<input type="email" onchange="setEmail( )" id="email-login" name="email" class="form-control_auth" required>
+				<input type="email" onchange="setEmail( )" id="email-login" name="email" class="form-control_" required>
 				<label>Password</label>
-				<input type="password" onchange="setPassword( )" id="password-login" name="password" class="form-control_auth" required>
-				<button  onclick="submitLoginInfo()" class="btn_auth">Login</button>
+				<input type="password" onchange="setPassword( )" id="password-login" name="password" class="form-control_" required>
+				<button  onclick="submitLoginInfo()" class="btn_">Login</button>
 			</div>
 		</div>
 	</div>`
@@ -43,11 +43,11 @@ function submitLoginInfo() {
 
 
 function toggleLoginModal() {
-	let style = document.getElementById('modal_auth').style.display
+	let style = document.getElementById('modal_').style.display
 	if (style == '') {
-		document.getElementById('modal_auth').style.display = 'block'
+		document.getElementById('modal_').style.display = 'block'
 		return
 	}
-	document.getElementById('modal_auth').style.display = style == 'block' ? 'none' : 'block'
+	document.getElementById('modal_').style.display = style == 'block' ? 'none' : 'block'
 }
 
