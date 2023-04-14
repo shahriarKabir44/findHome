@@ -59,7 +59,15 @@ CompanyRouter.post('/update', (req, res) => {
 })
 
 CompanyRouter.get('/getOwnedProperties/:companyId', (req, res) => {
+    console.log(req.params)
     CompanyRepository.getOwnedProperties(req.params)
+        .then(properties => {
+            res.send(properties)
+        })
+})
+
+CompanyRouter.get('/getOwnedPropertiesForDisplay/:companyId', (req, res) => {
+    CompanyRepository.getOwnedPropertiesForDisplay(req.params)
         .then(properties => {
             res.send(properties)
         })

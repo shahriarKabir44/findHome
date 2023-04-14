@@ -80,6 +80,16 @@ module.exports = class CompanyRepository {
         company.password = null
         return company
     }
+
+    static async getOwnedPropertiesForDisplay({ companyId }) {
+        return promisify({
+            sql: `select * from property
+                where property.sellerId = ?; `,
+            values: [companyId]
+        })
+    }
+
+
     static async getOwnedProperties({ companyId }) {
         return promisify({
             sql: `select
