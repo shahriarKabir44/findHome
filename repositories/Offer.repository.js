@@ -4,6 +4,7 @@ const { createInsertQuery, createUpdateQuery } = require('../utils/queryBuilder'
 const PropertyRepository = require('./Property.repository')
 const NotificationRepository = require('./Notification.repository')
 const UserRepository = require('./User.repository')
+const TransactionRepository = require('./Transactions.repository')
 module.exports = class OfferRepository {
     static async create({ offeredBy, propertyId, offer, companyId }) {
         let time = (new Date()) * 1
@@ -56,6 +57,12 @@ module.exports = class OfferRepository {
             values: [property.id]
         })
         PropertyRepository.update({ id: property.id, newOwner: offer.offeredBy })
+        TransactionRepository.create({
+            purchasedBy: offer.offeredBy,
+            purchasedFrom: company.id,
+            propertyId: property.id,
+            amount: offer.offer
+        })
         NotificationRepository.create({
             body: `${company.name} has accepted your offer of tk. ${offer.offer}. You are now the owner of the property.`,
             senderId: company.id,

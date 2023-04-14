@@ -124,6 +124,30 @@ CREATE TABLE `property` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `transaction`
+--
+
+DROP TABLE IF EXISTS `transaction`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `transaction` (
+  `id` int NOT NULL AUTO_INCREMENT COMMENT 'Primary Key',
+  `time` double DEFAULT NULL COMMENT 'Create Time',
+  `purchasedBy` int DEFAULT NULL,
+  `purchasedFrom` int DEFAULT NULL,
+  `propertyid` int DEFAULT NULL,
+  `amount` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `purchasedBy` (`purchasedBy`),
+  KEY `purchasedFrom` (`purchasedFrom`),
+  KEY `propertyid` (`propertyid`),
+  CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`purchasedBy`) REFERENCES `user` (`id`),
+  CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`purchasedFrom`) REFERENCES `company` (`id`),
+  CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`propertyid`) REFERENCES `property` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `user`
 --
 
@@ -152,4 +176,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-14 17:12:07
+-- Dump completed on 2023-04-14 20:07:16
