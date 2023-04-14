@@ -166,7 +166,8 @@ async function render() {
                                         align-items: center;
                                     ">
                                     <div class="card-body">
-                                        <p>${company.name}</p>
+                                        <a href="http://localhost:4000/viewCompany?id=${company.id}"> <p>${company.name}</p></a>
+                                       
                                         <p><strong>Email:</strong> ${company.email}</p>
                                         <p><strong>Phone:</strong> ${company.phoneNumbers}</p>
                                         <p><strong>Location:</strong> ${company.location}</p>

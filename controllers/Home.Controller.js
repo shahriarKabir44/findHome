@@ -14,6 +14,9 @@ HomeController.get('/propertyDetails', (req, res) => {
 
 })
 
+HomeController.get('/viewCompany', (req, res) => {
+    res.sendFile(path + '/public/components/company/company.html')
 
+})
 
 module.exports = HomeController
