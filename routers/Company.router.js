@@ -73,6 +73,13 @@ CompanyRouter.get('/getOwnedPropertiesForDisplay/:companyId', (req, res) => {
         })
 })
 
+CompanyRouter.post('/updateProhibition', (req, res) => {
+    CompanyRepository.updateProhibition(req.body)
+        .then(() => {
+            res.send({ success: true })
+        })
+})
+
 CompanyRouter.get('/isAuthorized', async (req, res) => {
     let company = await validateJWT(req.headers['token'], process.env.jwtSecretCompany)
     res.send({ 'company': company ? company : null })

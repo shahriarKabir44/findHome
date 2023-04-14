@@ -1,8 +1,11 @@
 const promisify = require('../utils/promisify')
 const { createInsertQuery, createUpdateQuery } = require('../utils/queryBuilder')
+const CompanyRepository = require('./Company.repository')
 
 module.exports = class PropertyRepository {
     static async create({ sellerId, location, price, area, numBeds, numBath, info, phase, type }) {
+        let [{ isProhibited }] = await CompanyRepository.searchById(sellerId)
+        if (isProhibited) return null
         await promisify({
             sql: createInsertQuery('property', ['sellerId', 'location', 'price', 'area', 'numBeds', 'numBath', 'info', 'phase', 'type']),
             values: [sellerId, location, price, area, numBeds, numBath, info, phase, type]

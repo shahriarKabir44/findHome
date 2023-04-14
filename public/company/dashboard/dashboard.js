@@ -45,6 +45,9 @@ app.controller('myCtrl', function ($scope) {
     $scope.createProperty = async () => {
         $scope.newProperty.sellerId = $scope.company.id
         let { newId } = await __fetch('property/create', $scope.newProperty)
+        if (newId == null) {
+            alert("You are not allowed to create a new property");
+        }
         let promises = []
         let urls = []
         for (let n = 0; n < $scope.prevewImages.length; n++) {

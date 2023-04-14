@@ -54,7 +54,7 @@ module.exports = class CompanyRepository {
     }
     static async authenticate({ email, password }) {
         let [company] = await promisify({
-            sql: `select id, name, location, image, phoneNumbers, email,description
+            sql: `select id, name, location, image, phoneNumbers, email,description, isProhibited
                 from company where email = ? and password = ? ;`,
             values: [email, password]
         })
@@ -67,7 +67,7 @@ module.exports = class CompanyRepository {
     }
     static async getCompanyList({ pageNumber }) {
         return promisify({
-            sql: `select id, name, location, image, phoneNumbers, email
+            sql: `select id, name, location, image, phoneNumbers, email, isProhibited
                  from company limit ?,5;`,
             values: [pageNumber * 1]
         })
@@ -80,7 +80,12 @@ module.exports = class CompanyRepository {
         company.password = null
         return company
     }
-
+    static async updateProhibition({ companyId, status }) {
+        return promisify({
+            sql: `${createUpdateQuery('company', ['isProhibited'])} where id=?`,
+            values: [status, companyId]
+        })
+    }
     static async getOwnedPropertiesForDisplay({ companyId }) {
         return promisify({
             sql: `select * from property

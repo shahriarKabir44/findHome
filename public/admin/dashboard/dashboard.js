@@ -20,11 +20,17 @@ app.controller('myCtrl', function ($scope) {
         $("#myModal").modal('show')
 
     }
+
+    $scope.updateProhibition = (company) => {
+        if (!window.confirm('Are you sure you want to update?')) return
+        company.isProhibited ^= 1
+        __fetch('company/updateProhibition', { companyId: company.id, status: company.isProhibited })
+    }
     $scope.getCompanies = async () => {
         let { companies } = await __fetch('company/getCompanyList/0')
 
         $scope.companies = companies.map(company => {
-            return { ...company, image: 'http://localhost:4000/' + company.image }
+            return { ...company, image: company.image }
         })
         $scope.$apply()
     }
