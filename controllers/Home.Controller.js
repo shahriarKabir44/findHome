@@ -10,7 +10,7 @@ HomeController.get('/', (req, res) => {
     res.redirect('/home')
 })
 HomeController.get('/propertyDetails', (req, res) => {
-    res.send(fs.readFileSync(path + '/public/components/propertyDetails/propertydetails-sv.html').toString());
+    res.sendFile(path + '/public/components/propertyDetails/propertydetails-sv.html')
 
 })
 

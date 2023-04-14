@@ -5,8 +5,26 @@ angular.module('property_details', [])
         $scope.imageCover = []
         $scope.activeMainImages = 0
 
+        $scope.getOffers = async (propertyId) => {
+            $scope.offerers = await __fetch('offer/getPropertyOffers/' + propertyId)
 
+            $scope.offerers.forEach(offerer => {
+                offerer.time = (new Date(offerer.time)).toLocaleString()
+            })
+            $scope.$apply()
+        }
+        $scope.acceptOffer = async (offer) => {
+            if (!window.confirm("Are you sure you want to accept?"))
+                return
+
+            await __fetch('offer/accept', { offer, company: $scope.company, property: $scope.property })
+            location.reload()
+        }
         $scope.availableImagesCount = []
+
+        $scope.getOwnerInfo = async (propertyId) => {
+            $scope.propertyOwner = await __fetch('property/getOwnerInfo/', +propertyId)
+        }
         $scope.onInit = async () => {
             await $scope.checkLoggedIn()
             let params = new URLSearchParams(location.search)
@@ -24,7 +42,7 @@ angular.module('property_details', [])
             }
 
             $scope.activeMainImages = $scope.images.length
-
+            $scope.getOffers(id)
             $scope.property = property
             $scope.$apply()
         }

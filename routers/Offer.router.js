@@ -35,4 +35,9 @@ OfferRouter.post('/checkMyOffer', (req, res) => {
         })
 })
 
+OfferRouter.post('/accept', (req, res) => {
+    OfferRepository.accept(req.body)
+        .then(() => res.send({ success: true }))
+})
+
 module.exports = OfferRouter

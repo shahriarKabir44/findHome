@@ -1,8 +1,8 @@
 const promisify = require('../utils/promisify')
 
 const { createInsertQuery, createUpdateQuery } = require('../utils/queryBuilder')
-
-
+const PropertyRepository = require('./Property.repository')
+const NotificationRepository = require('./Notification.repository')
 module.exports = class OfferRepository {
     static async create({ offeredBy, propertyId, offer }) {
         let time = (new Date()) * 1
@@ -21,7 +21,9 @@ module.exports = class OfferRepository {
     }
     static async getPropertyOffers({ propertyId }) {
         return promisify({
-            sql: `select * from offers  where propertyId=?;`,
+            sql: `select user.name, user.email, user.phone, user.profileImageURL,offer.offer
+                ,offer.time,offer.id as offerId ,offer.offeredBy from user,offer
+                where user.id=offer.offeredBy and offer.propertyId=?;`,
             values: [propertyId]
         })
     }
@@ -38,5 +40,19 @@ module.exports = class OfferRepository {
             sql: `delete from offer where id=?;`,
             values: [id]
         })
+    }
+    static async accept({ offer, property, company }) {
+        promisify({
+            sql: `delete from offer where offer.propertyId=?;`,
+            values: [property.id]
+        })
+        PropertyRepository.update({ id: property.id, newOwner: offer.offeredBy })
+        NotificationRepository.create({
+            body: `${company.name} has accepted your offer of tk. ${offer.offer}. You are now the owner of the property.`,
+            senderId: company.id,
+            receiverId: offer.offeredBy,
+            type: 1
+        })
+        return 1
     }
 }

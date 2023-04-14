@@ -184,6 +184,37 @@
                     <button ng-click="confirmUpdate()" class="btn btn-success">Confirm update</button>
                     <button class="btn btn-danger">Cancel</button>
                 </div>
+                <div class="container">
+                    <h2>Offers</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Offer</th>
+                                <th>Time</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="offerer in offerers">
+                                <td style="vertical-align: middle;"><img
+                                        src="http://localhost:4000/{{offerer.profileImageURL}}" alt="{{user.name}}"
+                                        style="max-width:100px;max-height:100px;"></td>
+                                <td style="vertical-align: middle;">{{offerer.name}}</td>
+                                <td style="vertical-align: middle;">{{offerer.phone}}</td>
+                                <td style="vertical-align: middle;">{{offerer.email}}</td>
+                                <td style="vertical-align: middle;">{{offerer.offer}}</td>
+                                <td style="vertical-align: middle;">{{offerer.time}}</td>
+                                <td>
+                                    <button ng-click="acceptOffer(offerer)" class="btn btn-success">Accept</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
