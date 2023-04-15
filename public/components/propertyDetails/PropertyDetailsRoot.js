@@ -12,7 +12,7 @@ async function render() {
         location.href = 'http://localhost:4000/home'
     }
     let { company } = await __fetch('property/getCompanyInfo/' + id)
-
+    console.log(company)
     let owner = null
     if (property.newOwner) {
         owner = await __fetch('transaction/getPropertyTransaction/' + property.id)
@@ -172,7 +172,7 @@ async function render() {
                                         <p><strong>Phone:</strong> ${company.phoneNumbers}</p>
                                         <p><strong>Location:</strong> ${company.location}</p>
                                     </div>
-                                    <img style="width:100%" src="${company.image}" alt="" />
+                                    <img style="width:100%" src="http://localhost:4000/${company.image}" alt="" />
                                 </div>
                                  
                             </div>

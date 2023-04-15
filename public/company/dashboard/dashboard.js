@@ -88,7 +88,7 @@ app.controller('myCtrl', function ($scope) {
     }
 
     $scope.updateCompanyInfo = async () => {
-        await __fetch('company/update', { ...$scope.company })
+        await __fetch('company/update', { ...$scope.company, image: null })
         alert("Information updated successfully")
     }
 

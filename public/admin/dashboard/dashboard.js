@@ -30,7 +30,7 @@ app.controller('myCtrl', function ($scope) {
         let { companies } = await __fetch('company/getCompanyList/0')
 
         $scope.companies = companies.map(company => {
-            return { ...company, image: company.image }
+            return { ...company, image: "http://localhost:4000/" + company.image }
         })
         $scope.$apply()
     }

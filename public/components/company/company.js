@@ -61,7 +61,7 @@ async function render() {
                 <div class="col-md-6 animated fadeIn">
                     <div class="header-carousel">
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="${company.image}" alt="">
+                            <img class="img-fluid" src="http://localhost:4000/${company.image}" alt="">
                         </div>
                          
                     </div>
