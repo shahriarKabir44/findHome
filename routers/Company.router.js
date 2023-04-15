@@ -2,7 +2,6 @@ const CompanyRouter = require('express').Router()
 const CompanyRepository = require('../repositories/Company.repository')
 const { upload } = require("../utils/fileManager");
 
-const validateJWT = require('../utils/validateJWT')
 
 let path = __dirname.split('/')
 path.pop()
@@ -81,8 +80,10 @@ CompanyRouter.post('/updateProhibition', (req, res) => {
 })
 
 CompanyRouter.get('/isAuthorized', async (req, res) => {
-    let company = await validateJWT(req.headers['token'], process.env.jwtSecretCompany)
-    res.send({ 'company': company ? company : null })
+    CompanyRepository.authorize(req)
+        .then(info => {
+            res.send(info)
+        })
 })
 
 module.exports = CompanyRouter

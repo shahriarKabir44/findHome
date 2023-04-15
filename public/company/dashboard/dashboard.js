@@ -9,9 +9,9 @@ app.controller('myCtrl', function ($scope) {
     }
     $scope.prevewImages = [null, null, null]
     $scope.checkLoggedIn = async function () {
-        let { company } = await __fetch('company/isAuthorized')
+        let { company, token } = await __fetch('company/isAuthorized')
         $scope.company = company
-
+        localStorage.setItem('token', token)
         if (!company) {
             location.href = 'http://localhost:4000/company/login'
         }

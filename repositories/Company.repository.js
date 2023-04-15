@@ -1,6 +1,8 @@
 const promisify = require('../utils/promisify');
 const { createInsertQuery, createUpdateQuery } = require('../utils/queryBuilder')
 const jwt = require('jsonwebtoken');
+const validateJWT = require('../utils/validateJWT')
+
 const NotificationRepository = require('./Notification.repository');
 
 module.exports = class CompanyRepository {
@@ -133,5 +135,15 @@ module.exports = class CompanyRepository {
                 where property.sellerId = ?; `,
             values: [companyId]
         })
+    }
+
+    static async authorize(req) {
+        let company = await validateJWT(req.headers['token'], process.env.jwtSecretCompany)
+        if (!company) return { company: null, token: null };
+
+        let companyNewInfo = await CompanyRepository.searchById({ id: company.id })
+        let token = jwt.sign({ ...company, type: "company" }, process.env.jwtSecretCompany)
+        return { company: companyNewInfo, token }
+
     }
 }
