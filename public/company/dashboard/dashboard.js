@@ -103,6 +103,7 @@ app.controller('myCtrl', function ($scope) {
 
     }
     $scope.viewNotification = (notification) => {
+        if (notification.type == 3) return
         location.href = 'http://localhost:4000/company/viewProperty?id=' + notification.propertyId
     }
     $scope.logOut = () => {

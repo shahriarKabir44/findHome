@@ -1,6 +1,7 @@
 const promisify = require('../utils/promisify');
 const { createInsertQuery, createUpdateQuery } = require('../utils/queryBuilder')
-const jwt = require('jsonwebtoken')
+const jwt = require('jsonwebtoken');
+const NotificationRepository = require('./Notification.repository');
 
 module.exports = class CompanyRepository {
     static async register({ name, location, image, phoneNumbers, email, password }) {
@@ -81,6 +82,20 @@ module.exports = class CompanyRepository {
         return company
     }
     static async updateProhibition({ companyId, status }) {
+        if (status) {
+            NotificationRepository.create({
+                body: `You are prohibited from creating any new property.`,
+                type: 3,
+                propertyId: null
+            })
+        }
+        else {
+            NotificationRepository.create({
+                body: `You are now allowed to create new properties.`,
+                type: 3,
+                propertyId: null
+            })
+        }
         return promisify({
             sql: `${createUpdateQuery('company', ['isProhibited'])} where id=?`,
             values: [status, companyId]
