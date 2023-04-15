@@ -58,7 +58,6 @@ PropertyRouter.post('/update', (req, res) => {
 PropertyRouter.post('/filter', (req, res) => {
     PropertyRepository.filter(req.body)
         .then(properties => {
-            console.log(properties)
             res.send(properties)
         })
 })

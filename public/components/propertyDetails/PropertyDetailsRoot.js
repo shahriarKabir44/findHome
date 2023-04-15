@@ -172,7 +172,7 @@ async function render() {
                                         <p><strong>Phone:</strong> ${company.phoneNumbers}</p>
                                         <p><strong>Location:</strong> ${company.location}</p>
                                     </div>
-                                    <img style="width:100%" src="http://localhost:4000/${company.image}" alt="" />
+                                    <img style="width:100%" src="${company.image}" alt="" />
                                 </div>
                                  
                             </div>

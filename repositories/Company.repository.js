@@ -82,18 +82,23 @@ module.exports = class CompanyRepository {
         return company
     }
     static async updateProhibition({ companyId, status }) {
+        console.log(companyId, status)
         if (status) {
             NotificationRepository.create({
                 body: `You are prohibited from creating any new property.`,
                 type: 3,
-                propertyId: null
+                propertyId: null,
+                receiverId: companyId,
+                senderId: null
             })
         }
         else {
             NotificationRepository.create({
                 body: `You are now allowed to create new properties.`,
                 type: 3,
-                propertyId: null
+                propertyId: null,
+                receiverId: companyId,
+                senderId: null
             })
         }
         return promisify({

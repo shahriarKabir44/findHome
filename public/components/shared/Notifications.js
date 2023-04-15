@@ -1,5 +1,9 @@
 async function getNotifications(userId) {
-    return __fetch('notification/getnotifications', { id: userId, pagenumber: 0, type: 1 })
+    let notifications = await __fetch('notification/getnotifications', { id: userId, pagenumber: 0, type: 1 })
+
+    notifications.sort((a, b) => { return b.time - a.time })
+    return notifications
+
 }
 
 

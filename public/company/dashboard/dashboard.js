@@ -95,6 +95,7 @@ app.controller('myCtrl', function ($scope) {
 
     $scope.getNotifications = async () => {
         $scope.notifications = await __fetch('notification/getnotifications', { id: $scope.company.id, pagenumber: 0, type: 2 })
+        $scope.notifications.sort((a, b) => { return b.time - a.time })
         $scope.notifications.forEach(notification => {
             notification.time = (new Date(notification.time)).toLocaleString()
         })
