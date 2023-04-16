@@ -4,7 +4,6 @@ const UserRouter = require('express').Router()
 
 const { upload } = require('../utils/fileManager')
 UserRouter.get('/findUser/:id', (req, res) => {
-    console.log(req.params)
     try {
         UserRepository.findUser(req.params)
             .then(user => {

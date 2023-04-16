@@ -84,7 +84,6 @@ module.exports = class CompanyRepository {
         return company
     }
     static async updateProhibition({ companyId, status }) {
-        console.log(companyId, status)
         if (status) {
             NotificationRepository.create({
                 body: `You are prohibited from creating any new property.`,
@@ -110,8 +109,10 @@ module.exports = class CompanyRepository {
     }
     static async getOwnedPropertiesForDisplay({ companyId }) {
         return promisify({
-            sql: `select * from property
-                where property.sellerId = ?; `,
+            sql: `select property.id ,property.images,property.location,property.price,
+                property.newOwner,property.area, property.numBeds,property.numBath,property.info,property.phase,
+                property.type, company.name as companyName from property,company 
+                where property.sellerId=company.id and property.sellerId = ?; `,
             values: [companyId]
         })
     }

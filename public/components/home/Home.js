@@ -15,6 +15,10 @@ async function render() {
     ${SearchPanel()}
     ${CatagoryList()}
     ${About()}
+    <div class="container text-center mx-auto mb-5 wow fadeInUp">    
+        <h1 class="mb-3">Properties available for sale</h1>
+    </div>
+
     ${await PropertyList(properties)}
     ${ContactUsPanel()}
     ${CompanyProfile()}

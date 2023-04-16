@@ -28,7 +28,6 @@ function setPassword() {
 }
 function submitLoginInfo() {
 
-	console.log(newUser)
 	__fetch('user/authenticate', newUser)
 		.then(({ user, token }) => {
 			if (user) {

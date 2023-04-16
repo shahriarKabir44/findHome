@@ -10,7 +10,6 @@ async function render() {
         location.href = 'http://localhost:4000/home'
     }
     let { user: currentUser } = await __fetch('user/isAuthorized')
-    console.log(currentUser)
     let properties = await __fetch(`property/getUserOwnedProperties/${id}`)
 
     properties = properties.map(property => {

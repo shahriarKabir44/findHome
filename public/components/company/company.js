@@ -10,9 +10,7 @@ async function render() {
         location.href = 'http://localhost:4000/home'
     }
     let { user } = await __fetch('user/isAuthorized')
-    console.log(company)
     let properties = await __fetch(`company/getOwnedPropertiesForDisplay/${id}`)
-    console.log(properties)
     properties = properties.map(property => {
         property.images = JSON.parse(property.images)
         property.images = property.images.map(image => 'http://localhost:4000/' + image)

@@ -11,6 +11,8 @@ function PropertyItem(property) {
                     </div>
                     <div class="p-4 pb-0"> 
                         <h5 class="text-primary mb-3">Price: BDT. ${property?.price}</h5>
+                        <h6 class="text-primary mb-3">From: ${property?.companyName}</h6>
+
                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i>${property?.location}</p>
                     </div>
                     <div class="d-flex border-top">

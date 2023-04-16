@@ -1,8 +1,6 @@
 async function render() {
     let params = Object.fromEntries(new URLSearchParams(location.search))
 
-    console.log(params)
-
     let properties = await __fetch('property/filter', params)
     properties = properties.map(property => {
         property.images = JSON.parse(property.images)

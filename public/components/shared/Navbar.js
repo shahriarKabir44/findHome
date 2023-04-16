@@ -1,6 +1,5 @@
 async function Navbar(user) {
 
-    console.log(user)
 
     return `
     <style>

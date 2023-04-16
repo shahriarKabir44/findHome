@@ -12,7 +12,6 @@ async function render() {
         location.href = 'http://localhost:4000/home'
     }
     let { company } = await __fetch('property/getCompanyInfo/' + id)
-    console.log(company)
     let owner = null
     if (property.newOwner) {
         owner = await __fetch('transaction/getPropertyTransaction/' + property.id)
@@ -23,7 +22,6 @@ async function render() {
     if (user) {
         let { offer } = await __fetch('offer/checkMyOffer', { offeredBy: user.id, propertyId: id })
         offerInfo = offer
-        console.log(offer)
     }
     property.images = JSON.parse(property.images)
     return `
