@@ -11,7 +11,7 @@ function Footer() {
                             <a class="btn btn-outline-light btn-social" href="https://twitter.com/MomtahinaBushra"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=100011412137682"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-outline-light btn-social" href="https://youtube.com/Realstatewebsite"><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://linkedin/in/MehrunNessa"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/in/pranto-sen-2501891aa/"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
