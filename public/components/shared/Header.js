@@ -17,8 +17,8 @@ function Header() {
                             <img class="active" src="http://localhost:4000/img/carousel-1.jpg" alt="">
                             <img class="" src="http://localhost:4000/img/carousel-2.jpg" alt="">
 
-                            <button class="carousel-btn prevBtn">&#8249;</button>
-                            <button class="carousel-btn nextBtn">&#8250;</button>
+                            <button class="carousel-btn prev prevBtn">&#8249;</button>
+                            <button class="carousel-btn next nextBtn">&#8250;</button>
                         </div>
                     </div>
                 </div>
