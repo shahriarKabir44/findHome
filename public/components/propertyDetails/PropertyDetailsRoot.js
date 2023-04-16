@@ -30,7 +30,6 @@ async function render() {
     ${await Navbar(user)}
         <br><br><br><br><br>
 
-    ${Header()}
     <br><br><br><br><br><br>
     <div class="container-fluid header bg-white p-0">
         <div class="row gx-0 align-items-center flex-column-reverse flex-md-row">

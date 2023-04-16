@@ -1,5 +1,9 @@
 function Header() {
-    return `<div class="container-fluid header bg-white p-0">
+    return `
+    
+    
+    
+        <div class="container-fluid header bg-white p-0">
             <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
                 <div class="col-md-6 p-5 mt-lg-5">
                     <h1 class="display-5 animated fadeIn mb-4">Find A <span class="text-primary">Perfect Home</span> To Live With Your Family</h1>
@@ -7,15 +11,42 @@ function Header() {
  
                 </div>
                 <div class="col-md-6 animated fadeIn">
-                    <div class="owl-carousel header-carousel">
-                        <div class="owl-carousel-item">
-                            <img class="img-fluid" src="http://localhost:4000/img/carousel-1.jpg" alt="">
-                        </div>
-                        <div class="owl-carousel-item">
-                            <img class="img-fluid" src="http://localhost:4000/img/carousel-1.jpg" alt="">
+                    <div class="container">
+                        <div class="carousel carousel_container">
+                         
+                            <img class="active" src="http://localhost:4000/img/carousel-1.jpg" alt="">
+                            <img class="" src="http://localhost:4000/img/carousel-2.jpg" alt="">
+
+                            <button class="carousel-btn prevBtn">&#8249;</button>
+                            <button class="carousel-btn nextBtn">&#8250;</button>
                         </div>
                     </div>
                 </div>
+                 
             </div>
         </div>`
 }
+
+setTimeout(() => {
+    const images = document.querySelectorAll('.carousel_container img');
+    const prevButton = document.querySelector('.prevBtn');
+    const nextButton = document.querySelector('.nextBtn');
+    let currentImageIndex = 0;
+
+    function showImage(index) {
+        images[currentImageIndex].classList.remove('active');
+        images[index].classList.add('active');
+        currentImageIndex = index;
+    }
+
+    prevButton.addEventListener('click', () => {
+        const index = (currentImageIndex === 0) ? images.length - 1 : currentImageIndex - 1;
+
+        showImage(index);
+    });
+
+    nextButton.addEventListener('click', () => {
+        const index = (currentImageIndex === images.length - 1) ? 0 : currentImageIndex + 1;
+        showImage(index);
+    });
+}, 600)

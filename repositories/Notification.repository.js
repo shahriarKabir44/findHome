@@ -13,12 +13,12 @@ module.exports = class NotificationRepository {
     static async getnotifications({ id, pagenumber, type }) {
         if (type == 2) {
             return promisify({
-                sql: `select * from notification where receiverId = ? and (type=2 or type=3) limit ?,10;`,
+                sql: `select * from notification where receiverId = ? and (type=2 or type=3) ;`,
                 values: [id, type, pagenumber]
             })
         }
         return promisify({
-            sql: `select * from notification where receiverId = ? and type=1 limit ?,10;`,
+            sql: `select * from notification where receiverId = ? and type=1  ;`,
             values: [id, type, pagenumber]
         })
     }

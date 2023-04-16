@@ -68,23 +68,26 @@ module.exports = class PropertyRepository {
         let filterquery = []
         let values = []
         if (location != '') {
-            filterquery.push(`location=? `);
+            filterquery.push(`property.location=? `);
             values.push(location)
         }
         if (phase != '') {
-            filterquery.push(`phase=? `);
+            filterquery.push(`property.phase=? `);
             values.push(phase)
         }
         if (type != '') {
-            filterquery.push(`type=? `);
+            filterquery.push(`property.type=? `);
             values.push(type)
         }
         if (price != '') {
             let range = price.split('-')
-            filterquery.push(`price >=? and price <=? `);
+            filterquery.push(`property.price >=? and property.price <=? `);
             values = [...values, ...range]
         }
-        let sql = filterquery.length ? `select * from property where ${filterquery.join(' and ')};` : `select * from property;`
+        let sql = filterquery.length ? ` select property.id ,property.images,property.location,property.price,
+                property.newOwner,property.area, property.numBeds,property.numBath,property.info,property.phase,
+                property.type, company.name as companyName from property,company 
+                where property.sellerId=company.id and   ${filterquery.join(' and ')};` : `select * from property;`
         return promisify({
             sql,
             values
@@ -97,43 +100,43 @@ module.exports = class PropertyRepository {
         let fieldNames = []
         if (location) {
             fields.push(location)
-            fieldNames.push('location')
+            fieldNames.push('property.location')
         }
         if (price) {
             fields.push(price)
-            fieldNames.push('price')
+            fieldNames.push('property.price')
         }
         if (images) {
             fields.push(images)
-            fieldNames.push('images')
+            fieldNames.push('property.images')
         }
         if (newOwner) {
             fields.push(newOwner)
-            fieldNames.push('newOwner')
+            fieldNames.push('property.newOwner')
         }
         if (area) {
             fields.push(area)
-            fieldNames.push('area')
+            fieldNames.push('property.area')
         }
         if (numBeds) {
             fields.push(numBeds)
-            fieldNames.push('numBeds')
+            fieldNames.push('property.numBeds')
         }
         if (numBath) {
             fields.push(numBath)
-            fieldNames.push('numBath')
+            fieldNames.push('property.numBath')
         }
         if (info) {
             fields.push(info)
-            fieldNames.push('info')
+            fieldNames.push('property.info')
         }
         if (phase) {
             fields.push(phase)
-            fieldNames.push('phase')
+            fieldNames.push('property.phase')
         }
         if (type) {
             fields.push(type)
-            fieldNames.push('type')
+            fieldNames.push('property.type')
         }
         promisify({
             sql: `${createUpdateQuery('property', fieldNames)} where id=?;`,

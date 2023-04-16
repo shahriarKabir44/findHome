@@ -1,6 +1,6 @@
 function TestimonialContainer() {
     let testimonials = [
-        { image: "img/testimonial-1.jpg", name: "abcd", message: "Joss", profession: "Teacher" },
+        { image: "img/testimonial-1.jpg", name: "abcd", message: "Shera!!!", profession: "Teacher" },
 
         { image: "img/testimonial-1.jpg", name: "abcd1", message: "Osthir", profession: "chef" },
         { image: "img/testimonial-1.jpg", name: "abcd2", message: "Mama shera", profession: "doctpr" },
