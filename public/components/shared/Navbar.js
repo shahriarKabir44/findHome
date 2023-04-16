@@ -25,18 +25,7 @@ async function Navbar(user) {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <div class="notificationbar">
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="property-list.html" class="dropdown-item">Property List</a>
-                                    <a href="property-type.html" class="dropdown-item">Property Types</a>
-                                    <a href="property-phase.html" class="dropdown-item">Property Phase</a>
-                                    <a href="property-agent.html" class="dropdown-item">Property Agent</a>
-
-                                </div>
-                            </div>
-                        </div>
+                        
                         
 
                         <div class="notificationbar">

@@ -2,14 +2,15 @@ const AdminRouter = require('express').Router()
 const AdminRepository = require('../repositories/Admin.repository')
 const validateJWT = require('../utils/validateJWT')
 let path = __dirname.split('/')
+const getDirName = require('../public/getDirName')
 path.pop()
 path = path.join('/')
 AdminRouter.get('/login', (req, res) => {
-    res.sendFile(path + '/public/admin/login/login.html')
+    res.sendFile(getDirName() + '/admin/login/login.html')
 })
 
 AdminRouter.get('/dashboard', (req, res) => {
-    res.sendFile(path + '/public/admin/dashboard/dashboard.html')
+    res.sendFile(getDirName() + '/admin/dashboard/dashboard.html')
 })
 
 AdminRouter.post('/authenticate', (req, res) => {

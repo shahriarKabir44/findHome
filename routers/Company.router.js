@@ -2,20 +2,20 @@ const CompanyRouter = require('express').Router()
 const CompanyRepository = require('../repositories/Company.repository')
 const { upload } = require("../utils/fileManager");
 
-
+const getDirName = require('../public/getDirName')
 let path = __dirname.split('/')
 path.pop()
 path = path.join('/')
 CompanyRouter.get('/login', (req, res) => {
-    res.sendFile(path + '/public/company/login/login.html')
+    res.sendFile(getDirName() + '/company/login/login.html')
 })
 
 CompanyRouter.get('/dashboard', (req, res) => {
-    res.sendFile(path + '/public/company/dashboard/dashboard.html')
+    res.sendFile(getDirName() + '/company/dashboard/dashboard.html')
 })
 
 CompanyRouter.get('/viewProperty', (req, res) => {
-    res.sendFile(path + '/public/company/propertyDetails/propertyDetails.html')
+    res.sendFile(getDirName() + '/company/propertyDetails/propertyDetails.html')
 })
 
 CompanyRouter.post('/uploadImage', upload.single('file'), (req, res) => {
