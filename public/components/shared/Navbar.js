@@ -37,7 +37,12 @@ async function Navbar(user) {
                                 </div>
                             </div>                        
                         </div>
-                        
+                        <div class="notificationbar">
+                            <div class="nav-item  ">
+                                <a href="http://localhost:4000/applyLoan" class="nav-link  " >Apply for loan</a>
+                                
+                            </div>                        
+                        </div>
                        
  
 

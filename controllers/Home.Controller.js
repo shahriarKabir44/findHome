@@ -15,6 +15,11 @@ HomeController.get('/interior', (req, res) => {
     res.sendFile((getDirName() + '/components/interior/interior.html'));
 
 })
+
+HomeController.get('/applyLoan', (req, res) => {
+    res.sendFile((getDirName() + '/applyLoan/applyLoan.html'));
+})
+
 HomeController.get('/construction', (req, res) => {
     res.sendFile((getDirName() + '/components/construction/construction.html'));
 
