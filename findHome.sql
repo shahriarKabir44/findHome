@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `find_home` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `find_home` /*!40100 DEFAULT CHARACTER SET utf8mb4  */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `find_home`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Linux (x86_64)
 --
@@ -30,7 +30,7 @@ CREATE TABLE `admin` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,13 +46,13 @@ CREATE TABLE `company` (
   `location` varchar(100) DEFAULT NULL,
   `image` varchar(100) DEFAULT NULL,
   `phoneNumbers` varchar(100) DEFAULT NULL,
-  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4  NOT NULL,
   `password` varchar(100) DEFAULT NULL,
   `description` text,
   `isProhibited` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `company_UN` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `notification` (
   PRIMARY KEY (`id`),
   KEY `propertyId` (`propertyId`),
   CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `property` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +94,7 @@ CREATE TABLE `offer` (
   KEY `offer_FK_1` (`offeredBy`),
   CONSTRAINT `offer_FK` FOREIGN KEY (`propertyId`) REFERENCES `property` (`id`),
   CONSTRAINT `offer_FK_1` FOREIGN KEY (`offeredBy`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +122,7 @@ CREATE TABLE `property` (
   KEY `property_FK_1` (`sellerId`),
   CONSTRAINT `property__FK` FOREIGN KEY (`newOwner`) REFERENCES `user` (`id`),
   CONSTRAINT `property_FK_1` FOREIGN KEY (`sellerId`) REFERENCES `company` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,7 @@ CREATE TABLE `transaction` (
   CONSTRAINT `transaction_ibfk_1` FOREIGN KEY (`purchasedBy`) REFERENCES `user` (`id`),
   CONSTRAINT `transaction_ibfk_2` FOREIGN KEY (`purchasedFrom`) REFERENCES `company` (`id`),
   CONSTRAINT `transaction_ibfk_3` FOREIGN KEY (`propertyid`) REFERENCES `property` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,14 +159,14 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `phone` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(100) CHARACTER SET utf8mb4  NOT NULL,
+  `phone` varchar(15) CHARACTER SET utf8mb4  NOT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `profileImageURL` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `profileImageURL` varchar(100) CHARACTER SET utf8mb4  DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_UN` (`email`),
   UNIQUE KEY `phone_UNIQUE` (`phone`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
