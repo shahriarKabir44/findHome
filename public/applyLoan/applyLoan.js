@@ -9,7 +9,7 @@ document.getElementById('approvalRequestForm')
             keys[key] = value;
         }
         console.log(keys)
-        fetch('http://localhost:8080/', {
+        fetch('http://localhost:8080/apply', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=UTF-8;'
@@ -18,6 +18,7 @@ document.getElementById('approvalRequestForm')
         }).then(res => {
             return res.json()
         }).then(data => {
+            console.log(res)
             document.getElementById('result').innerHTML = data
         })
     }
