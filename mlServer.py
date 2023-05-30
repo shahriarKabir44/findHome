@@ -49,7 +49,7 @@ if __name__ == "__main__":
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     try:
-        
+        ml.initModel()
         webServer.serve_forever()
     except KeyboardInterrupt:
         pass
