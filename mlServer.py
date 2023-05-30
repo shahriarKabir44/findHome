@@ -15,22 +15,31 @@ class MyServer(BaseHTTPRequestHandler):
        
         response = {'message': 'Data received successfully'}
         self.wfile.write(bytes(json.dumps(response),'utf-8'))
-    def do_OPTIONS(self):
-        self.send_response(200, "ok")
+    def useCORS(self):
+        self.send_response(200 ,"OK")
         self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, OPTIONS')
+        self.send_header('Access-Control-Allow-Methods', '*')
         self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header('Content-Type', 'application/json')
+
+        self.end_headers()
+    def do_OPTIONS(self):
+        self.send_response(200 ,"OK")
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', '*')
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header('Content-Type', 'application/json')
+
         self.end_headers()
     def do_POST(self):
-        self.send_response(200)
- 
-        self.send_header('Content-Type', 'application/json')
-        self.end_headers()
+        self.useCORS()
+
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
         json_data = json.loads(post_data.decode('utf-8'))
-
+    
         response=(ml.predict(json_data))
 
         self.wfile.write(bytes(json.dumps(response),'utf-8'))

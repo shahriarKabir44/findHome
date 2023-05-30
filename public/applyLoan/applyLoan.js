@@ -15,10 +15,8 @@ document.getElementById('approvalRequestForm')
                 'Content-Type': 'application/json;charset=UTF-8;'
             },
             body: JSON.stringify(keys)
-        }).then(res => {
-            return res.json()
-        }).then(data => {
-            console.log(res)
-            document.getElementById('result').innerHTML = data
+        }).then(res => res.json()).then(data => {
+            console.log(data)
+            document.getElementById('result').innerHTML = data.message
         })
     }
