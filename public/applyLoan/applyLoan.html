@@ -5,15 +5,174 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Loan Predictor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            color: #291919;
+            background: #eceef3;
+            font-family: 'Roboto', sans-serif;
+        }
+        .form-control {
+            border-color: rgb(73, 157, 230);
+            min-height: 41px;
+            box-shadow: none !important;
+        }
+        .form-control:focus {
+            border-color: #5cd3b4;
+        }
+        .form-control,
+        .btn {
+            border-radius: 3px;
+        }
+        .signup-form {
+            width: 500px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        .signup-form h2 {
+            color: #030303;
+            margin: 0 0 30px 0;
+            display: inline-block;
+            padding: 0 30px 10px 0;
+            border-bottom: 3px solid #5cd3b4;
+        }
+        .signup-form form {
+            color: #5d5656;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background: whitesmoke;
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+            padding: 30px;
+        }
+        .signup-form .form-group row {
+            margin-bottom: 20px;
+        }
+        .signup-form label {
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 2;
+        }
+        .signup-form input[type="checkbox"] {
+            position: relative;
+            top: 1px;
+        }
+        .signup-form .btn {
+            font-size: 16px;
+            font-weight: bold;
+            background: #5cd3b4;
+            border: none;
+            margin-top: 20px;
+            min-width: 140px;
+        }
+        .signup-form .btn:hover,
+        .signup-form .btn:focus {
+            background: #41cba9;
+            outline: none !important;
+        }
+        .signup-form a {
+            color: #5cd3b4;
+            text-decoration: underline;
+        }
+        .signup-form a:hover {
+            text-decoration: none;
+        }
+        .signup-form form a {
+            color: #5cd3b4;
+            text-decoration: none;
+        }
+        .signup-form form a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
     <form id="approvalRequestForm">
-        <label for="abc">abc</label>
-        <input type="text" name="gender" id="">
-        <input type="text" name="monthlyIncome" id="">
-        <button type="submit">Submit</button>
+        <div class="row">
+            <div class="col-12 mb-2 ">
+                <h3 class="mb-4 mt-4 text-center" style="color: rgb(8, 72, 89);">Home Loan Predictor</h3>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> Gender</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> Maritual Status</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+       
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> Dependents</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> Education</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> Self Employeed</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> ApplicantsIncome_In_Taka</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> CoapplicantsIncome_In_Taka</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> LoanAmount_In_Taka</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> Loan_Amount_Term</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> Credit_History</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-form-label col-4"><b> Property_Area</b></label>
+            <div class="col-8">
+                <input type="text" class="form-control" name="name" id="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-8 offset-4">
+                <button type="submit" class="btn btn-primary btn-lg">Predict</button>
+            </div>
+        </div>
     </form>
     <p id="result"></p>
 </body>
