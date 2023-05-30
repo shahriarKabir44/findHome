@@ -30,7 +30,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
     def do_POST(self):
          
-        self.send_header('Content-type', 'application/json')
+        self.send_header('Content-Type', 'application/json')
         self.end_headers()
         content_length = int(self.headers['Content-Length'])
         post_data = self.rfile.read(content_length)
@@ -46,6 +46,7 @@ if __name__ == "__main__":
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     try:
+        
         webServer.serve_forever()
     except KeyboardInterrupt:
         pass
