@@ -11,85 +11,34 @@
 
 
 def initModel(): 
-    import drive
-    drive.mount('/content/drive')
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-
-# Authenticate and create PyDrive client
-gauth = GoogleAuth()
-drive = GoogleDrive(gauth)
-
-# Mount Google Drive
-drive.mount('/content/drive')
-
+    
+  import numpy as np
 import pandas as pd
 #loading the dataset to a pandas dataframe
-data = pd.read_csv('/content/Train_Loan_Home.csv')
-
-#printing the first 5 rows of the dataset
-data.head()
-
-
-#printing the last 5 rows of the dataset
-data.tail()
-
-print(data.shape)
-
-number_of_rows = len(data)
-number_of_columns = len(data.columns)
-
-print("Total Number of Rows    : {}".format(number_of_rows))
-print("Total Number of Columns : {}".format(number_of_columns))
-
-data.info()
-
-
-data.isnull().sum()
-data.isnull().sum()*100 / len(data)
+data = pd.read_csv("E:\\NSU\\13th_Semester\\CSE499B\\Train_Loan_Home.csv")
 
 data = data.drop('Loan_ID',axis=1)
-data.head(1)
-
 data = data.drop('ApplicantIncome',axis=1)
 data = data.drop('CoapplicantIncome',axis=1)
 data = data.drop('LoanAmount',axis=1)
-data.head(1)
 
 columns = ['Gender', 'Dependents', 'LoanAmount_In_Taka', 'Loan_Amount_Term']
 data= data.dropna(subset=columns)
-data.isnull().sum()*100 / len(data)
-data['Self_Employed'].mode()[0]
 data['Self_Employed'] = data['Self_Employed'].fillna(data['Self_Employed'].mode()[0])
-data.isnull().sum()*100 / len(data)
-data['Self_Employed'].unique()
-data['Credit_History'].unique()
-data['Credit_History'].mode()[0]
 data['Credit_History'] = data['Credit_History'].fillna(data['Credit_History'].mode()[0])
-data.isnull().sum()*100 / len(data)
 
-data.sample(5)
 data['Dependents'] = data['Dependents'].replace(to_replace="3+",value='4')
-data['Dependents'].unique()
-data['Gender'].unique()
-data['Married'].unique()
-data['Education'].unique()
-data['Self_Employed'].unique()
-data['Property_Area'].unique()
-data['Loan_Status'].unique()
 data['Gender'] = data['Gender'].map({'Male':1, 'Female':0}).astype('int')
 data['Married'] = data['Married'].map({'Yes':1, 'No':0}).astype('int')
 data['Education'] = data['Education'].map({'Graduate':1, 'Not Graduate':0}).astype('int')
 data['Self_Employed'] = data['Self_Employed'].map({'Yes':1, 'No':0}).astype('int')
 data['Property_Area'] = data['Property_Area'].map({'Rural':0, 'Semiurban':2, 'Urban':1}).astype('int')
 data['Loan_Status'] = data['Loan_Status'].map({'Y':1, 'N':0}).astype('int')
-data.head()
 
 X = data.drop('Loan_Status',axis=1)
 y = data['Loan_Status']
 y
 
-data.head()
 cols = ['ApplicantIncome_In_Taka', 'CoapplicantIncome_In_Taka', 'LoanAmount_In_Taka', 'Loan_Amount_Term']
 from sklearn.preprocessing import StandardScaler
 st = StandardScaler()
@@ -207,12 +156,20 @@ else:
 #this function will use the data to predic the output
 #the output should be a dictionary
 
-def predict(df:dict[str,str])->dict[str,str]: 
-    print(df)
-    return {"message": "Loan will be approved!"}
+def predict(df):
+    X = df.drop('Loan_Status', axis=1)
+    model = joblib.load('loan_status_predict')
+    result = model.predict(X)
+
+    if result.any() == 1:
+        return {"message": "Loan will be approved!"}
+    else:
+        return {"message": "Loan will not be approved!"}
+
 
 # Call the predict function and capture the return value in a variable
-result = predict("Sample data")
+result = predict(data)
 
 # Use the return value in your code
-print(result["message"])  # Output: Loan will be approved!
+print(result["message"])  # Output: Loan will be approved! or Loan will not be approved!
+
