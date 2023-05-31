@@ -1,3 +1,15 @@
+#the initModel function is called when the server is started. therefore all the
+#codes related to data cleaning, model training should be done inside that function
+
+#it is advised to define separted functions for data cleaning pipelines and model training
+#e.g. define a function for a data cleaning pipeline as cleanData()
+#and a function for model training as train()
+#then call them in the initModel() function
+
+#since the dataset will be on the local machine, you should not use the Google drive related python modules
+ 
+
+
 def initModel(): 
     import drive
     drive.mount('/content/drive')
@@ -190,9 +202,12 @@ if result==1:
 else:
   print("Loan will Not be Approved")
 
+#the only parameter of this function is of type dict
+#it contains all the data submitter from the form
+#this function will use the data to predic the output
+#the output should be a dictionary
 
-
-def predict(df):
+def predict(df:dict[str,str])->dict[str,str]: 
     print(df)
     return {"message": "Loan will be approved!"}
 
