@@ -5,7 +5,7 @@ function Footer() {
                     <div class="col-lg-6 col-md-6">
                         <h5 class="text-white mb-4">Get In Touch</h5>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Dhaka,Bangladesh</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+88012 345 67890</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+8801543610482</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>mehrunnessamim@gmail.com</p>
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href="https://twitter.com/MomtahinaBushra"><i class="fab fa-twitter"></i></a>

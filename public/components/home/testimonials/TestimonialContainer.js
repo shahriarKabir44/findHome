@@ -1,11 +1,11 @@
 function TestimonialContainer() {
     let testimonials = [
-        { image: "img/testimonial-1.jpg", name: "abcd", message: "Shera!!!", profession: "Teacher" },
+        { image: "img/agent3.jpg", name: "Fehenna", message: "A perfect site to get the desired property.", profession: "Teacher" },
 
-        { image: "img/testimonial-1.jpg", name: "abcd1", message: "Osthir", profession: "chef" },
-        { image: "img/testimonial-1.jpg", name: "abcd2", message: "Mama shera", profession: "doctpr" },
-        { image: "img/testimonial-1.jpg", name: "abcd3", message: "Shohomot vai", profession: "engineer" },
-        { image: "img/testimonial-1.jpg", name: "abcd4", message: "Tempor stet labore dolor clita stet diam amet ipsum dolor duo ", profession: "Dakat" },
+        { image: "img/agent4.jpg", name: "Sanjida", message: "I think you will get no pain to get your desired property here.", profession: "Chef" },
+        { image: "img/team-4.jpg", name: "Palash", message: "I have not this type of website ever, Really wonderful.", profession: "DDoctor" },
+        { image: "img/team-2.jpg", name: "Jony", message: "Very Desired website and a wonderful UI", profession: "Engineer" },
+        
 
     ]
     return `<div class="container-xxl py-5">

@@ -47,7 +47,7 @@ async function render() {
                                     </tr>
                                     <tr>
                                         <th><strong>Location</strong></th>
-                                        <td>BDT ${company.location}</td>
+                                        <td>${company.location}</td>
                                     </tr>
                                     
 
