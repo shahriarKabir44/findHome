@@ -49,6 +49,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
 from sklearn.metrics import accuracy_score
 import numpy as np
+import warnings
+warnings.filterwarnings("ignore")
 
 model_df={}
 def model_val(model, X,y):
