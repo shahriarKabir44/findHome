@@ -159,7 +159,7 @@ else:
 #the output should be a dictionary
 
 def predict(df):
-    X = df.drop('Loan_Status', axis=1)
+    #X = df.drop('Loan_Status', axis=1)
     model = joblib.load('loan_status_predict')
     result = model.predict(X)
 
