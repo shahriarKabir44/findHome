@@ -33,10 +33,10 @@ function SearchPanel() {
                             <div class="col-md-3">
                                 <select  name="location" class="form-select border-0 py-3">
                                     <option  ${params?.location == "" ? "selected" : ""}  value="">Select location</option>
-                                    <option  ${params?.location == "New York" ? "selected" : ""}  value="New York">New York</option>
-                                    <option  ${params?.location == "Los Angeles" ? "selected" : ""}  value="Los Angeles">Los Angeles</option>
-                                    <option  ${params?.location == "Chicago" ? "selected" : ""}  value="Chicago">Chicago</option>
-                                    <option  ${params?.location == "Houston" ? "selected" : ""}  value="Houston">Houston</option>
+                                    <option  ${params?.location == "Basundhara" ? "selected" : ""}  value="Basundhara">Basundhara</option>
+                                    <option  ${params?.location == "Gulshan" ? "selected" : ""}  value="Gulshan">Gulshan</option>
+                                    <option  ${params?.location == "Mirpu" ? "selected" : ""}  value="Mirpur">Mirpur</option>
+                                    <option  ${params?.location == "Uttara" ? "selected" : ""}  value="Uttara">Uttara</option>
                                 </select>
                             </div>
                         </div>
