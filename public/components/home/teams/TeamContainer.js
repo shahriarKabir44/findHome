@@ -1,7 +1,7 @@
 function TeamContainer() {
     let teams = [
         
-        { designation: "CEO", name: "JMomtahina Rahman ", image: "img/agent1.jpg" },
+        { designation: "CEO", name: "Momtahina Rahman ", image: "img/agent1.jpg" },
 
         { designation: "CEO", name: "Mehrun Nessa ", image: "img/agent2.jpg" },
         { designation: "CEO", name: "Pranto Sen", image: "img/agent5.jpg" }

@@ -3,7 +3,7 @@ function TestimonialContainer() {
         { image: "img/agent3.jpg", name: "Fehenna", message: "A perfect site to get the desired property.", profession: "Teacher" },
 
         { image: "img/agent4.jpg", name: "Sanjida", message: "I think you will get no pain to get your desired property here.", profession: "Chef" },
-        { image: "img/team-4.jpg", name: "Palash", message: "I have not this type of website ever, Really wonderful.", profession: "DDoctor" },
+        { image: "img/team-4.jpg", name: "Palash", message: "I have not this type of website ever, Really wonderful.", profession: "Doctor" },
         { image: "img/team-2.jpg", name: "Jony", message: "Very Desired website and a wonderful UI", profession: "Engineer" },
         
 
