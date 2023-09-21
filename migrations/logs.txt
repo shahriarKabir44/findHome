@@ -1,0 +1,7 @@
+1695289299141create-table_admin.js
+1695289299142create-table_company.js
+1695289299142create-table_user.js
+1695289299142create-table_property.js
+1695289299142create-table_notification.js
+1695289299143create-table_offer.js
+1695289299143create-table_transaction.js

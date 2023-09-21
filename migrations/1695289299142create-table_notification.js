@@ -1,0 +1,31 @@
+const {Table} = require('migratify/templates/Migration.class')
+let newTable = new Table("notification");
+newTable.setID('id');
+newTable.addColumn('body','TEXT(65536)')
+	.setNullable(true)
+	 .setDefaultValue('')
+	 .setUnique(false)
+newTable.addColumn('senderId','INT')
+	.setNullable(true)
+	 .setDefaultValue('')
+	 .setUnique(false)
+newTable.addColumn('receiverId','INT')
+	.setNullable(true)
+	 .setDefaultValue('')
+	 .setUnique(false)
+newTable.addColumn('type','INT')
+	.setNullable(true)
+	 .setDefaultValue('')
+	 .setUnique(false)
+newTable.addColumn('time','DOUBLE')
+	.setNullable(true)
+	 .setDefaultValue('')
+	 .setUnique(false)
+newTable.addColumn('propertyId','INT')
+	.setNullable(true)
+	 .setDefaultValue('')
+	 .setUnique(false)
+newTable.addForeignKey('propertyId','property','id');
+module.exports = async () => {
+	newTable.create()
+}
