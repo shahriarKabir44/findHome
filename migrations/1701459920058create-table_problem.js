@@ -1,29 +1,32 @@
 const {Table} = require('migratify/templates/Migration.class')
-let newTable = new Table("transaction");
+let newTable = new Table("problem");
 newTable.setID('id');
-newTable.addColumn('time','DOUBLE')
+newTable.addColumn('title','VARCHAR(255)')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('purchasedBy','INT')
+newTable.addColumn('contestId','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('purchasedFrom','INT')
+newTable.addColumn('points','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('propertyid','INT')
+newTable.addColumn('numSolutions','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('amount','INT')
+newTable.addColumn('code','VARCHAR(255)')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addForeignKey('purchasedBy','user','id');
-newTable.addForeignKey('purchasedFrom','company','id');
-newTable.addForeignKey('propertyid','property','id');
+newTable.addColumn('createdOn','MEDIUMTEXT')
+	.setNullable(true)
+	 .setDefaultValue('')
+	 .setUnique(false)
+newTable.addForeignKey('contestId','contest','id');
+newTable.addForeignKey('contestId','contest','id');
 module.exports = async () => {
 	newTable.create()
 }

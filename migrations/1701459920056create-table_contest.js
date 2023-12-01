@@ -1,31 +1,31 @@
 const {Table} = require('migratify/templates/Migration.class')
-let newTable = new Table("notification");
+let newTable = new Table("contest");
 newTable.setID('id');
-newTable.addColumn('body','TEXT(65536)')
+newTable.addColumn('title','VARCHAR(255)')
+	.setNullable(true)
+	 .setDefaultValue('')
+	 .setUnique(true)
+newTable.addColumn('startTime','DOUBLE')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('senderId','INT')
+newTable.addColumn('endTime','DOUBLE')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('receiverId','INT')
+newTable.addColumn('hostId','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('type','INT')
+newTable.addColumn('code','VARCHAR(255)')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('time','DOUBLE')
+newTable.addColumn('status','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('propertyId','INT')
-	.setNullable(true)
-	 .setDefaultValue('')
-	 .setUnique(false)
-newTable.addForeignKey('propertyId','property','id');
+newTable.addForeignKey('hostId','user','id');
 module.exports = async () => {
 	newTable.create()
 }
