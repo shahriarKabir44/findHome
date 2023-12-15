@@ -1,6 +1,7 @@
 # Find Home
 
 Find Home is a property buying and selling platform that connects real estate companies and buyers. It allows users to browse, search, and compare properties from different companies, and also to predict loans using a machine learning model. It also provides a separate server using Python for data processing and analysis.
+The best accuracy we obtained was 78.36% by using Random Forest Classifier.
 
 ## Features
 
