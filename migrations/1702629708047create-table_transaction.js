@@ -1,31 +1,29 @@
 const {Table} = require('migratify/templates/Migration.class')
-let newTable = new Table("contest");
+let newTable = new Table("transaction");
 newTable.setID('id');
-newTable.addColumn('title','VARCHAR(255)')
-	.setNullable(true)
-	 .setDefaultValue('')
-	 .setUnique(true)
-newTable.addColumn('startTime','DOUBLE')
+newTable.addColumn('time','DOUBLE')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('endTime','DOUBLE')
+newTable.addColumn('purchasedBy','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('hostId','INT')
+newTable.addColumn('purchasedFrom','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('code','VARCHAR(255)')
+newTable.addColumn('propertyid','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('status','INT')
+newTable.addColumn('amount','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addForeignKey('hostId','user','id');
+newTable.addForeignKey('purchasedBy','user','id');
+newTable.addForeignKey('purchasedFrom','company','id');
+newTable.addForeignKey('propertyid','property','id');
 module.exports = async () => {
-	newTable.create()
+	return newTable.create()
 }

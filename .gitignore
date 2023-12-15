@@ -4,3 +4,7 @@
 public/uploads/*
 .vscode
 /__pycache__
+
+/migrations/config.json
+/migrations/logs.txt
+migrations/logs.txt

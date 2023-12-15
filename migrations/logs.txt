@@ -1,6 +1,7 @@
-1701459920056create-table_user.js
-1701459920056create-table_contest.js
-1701459920057create-table_contestMessage.js
-1701459920058create-table_contestResult.js
-1701459920058create-table_problem.js
-1701459920058create-table_submission.js
+1702629708045create-table_admin.js
+1702629708046create-table_company.js
+1702629708046create-table_user.js
+1702629708046create-table_property.js
+1702629708047create-table_notification.js
+1702629708047create-table_offer.js
+1702629708047create-table_transaction.js

@@ -1,32 +1,31 @@
 const {Table} = require('migratify/templates/Migration.class')
-let newTable = new Table("problem");
+let newTable = new Table("notification");
 newTable.setID('id');
-newTable.addColumn('title','VARCHAR(255)')
+newTable.addColumn('body','TEXT(65536)')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('contestId','INT')
+newTable.addColumn('senderId','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('points','INT')
+newTable.addColumn('receiverId','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('numSolutions','INT')
+newTable.addColumn('type','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('code','VARCHAR(255)')
+newTable.addColumn('time','DOUBLE')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addColumn('createdOn','MEDIUMTEXT')
+newTable.addColumn('propertyId','INT')
 	.setNullable(true)
 	 .setDefaultValue('')
 	 .setUnique(false)
-newTable.addForeignKey('contestId','contest','id');
-newTable.addForeignKey('contestId','contest','id');
+newTable.addForeignKey('propertyId','property','id');
 module.exports = async () => {
-	newTable.create()
+	return newTable.create()
 }
