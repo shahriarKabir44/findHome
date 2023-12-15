@@ -8,3 +8,4 @@ public/uploads/*
 /migrations/config.json
 /migrations/logs.txt
 migrations/logs.txt
+loanPrediction/__pycache__/ml.cpython-311.pyc
