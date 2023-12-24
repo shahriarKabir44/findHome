@@ -22,6 +22,10 @@ The project is built with the following technologies:
 - **Python**: A high-level programming language that supports multiple paradigms, such as object-oriented, imperative, functional, and procedural.
 - **scikit-learn**: A machine learning library for Python that provides tools for data analysis and modeling.
 
+## ML Server:
+The Machine learning server repository is available in this link:
+https://github.com/shahriarKabir44/find_home_ML_server
+
 ## How to run it locally using docker:
 - Clone this repository.
 - Run the MySQL docker image
@@ -33,12 +37,16 @@ sudo docker run -p <any port (NOT 3306)>:3306 --name findhome_mysql -e MYSQL_ROO
 ```bash
 npm install -g migratify
 ```
-- - Open the file <code>/migratins/config.json</code> file and set the <code>dbPort</code> variable to the port you have set for MySQL.
 - - Run 
 ```bash
 migratify clear
 ```
-- - Run
+- - Run the following command to create the database.
+```
+migratify create-db
+```
+
+- - Run the following command to create the schema.
 ```bash
 migratfy migrate
 ```
@@ -52,3 +60,5 @@ sudo docker pull shahriarkabir/findhome:latest
 ```bash 
 docker run -e  dbPassword=<your MySQL password> -p <port number>:4000 findhome:latest
 ```
+
+
