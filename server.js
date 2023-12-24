@@ -1,10 +1,9 @@
 const express = require('express')
 const cluster = require('cluster');
 const totalCPUs = require('os').cpus().length;
-const connection = require('./utils/db')
+const { initConnection } = require('./utils/db');
 const fs = require('fs');
-require('dotenv').config()
-connection.connect()
+require('dotenv').config({ path: `${__dirname}/.env.dev` })
 
 if (cluster.isMaster) {
     for (let i = 0; i < totalCPUs; i++) {
@@ -22,6 +21,7 @@ if (cluster.isMaster) {
 
 function startExpress() {
 
+    initConnection(process.env)
 
     let app = express()
     app.use(express.json())

@@ -1,7 +1,0 @@
-1702629708045create-table_admin.js
-1702629708046create-table_company.js
-1702629708046create-table_user.js
-1702629708046create-table_property.js
-1702629708047create-table_notification.js
-1702629708047create-table_offer.js
-1702629708047create-table_transaction.js
