@@ -21,3 +21,34 @@ The project is built with the following technologies:
 - **CSS**: A style sheet language that describes the presentation of web pages.
 - **Python**: A high-level programming language that supports multiple paradigms, such as object-oriented, imperative, functional, and procedural.
 - **scikit-learn**: A machine learning library for Python that provides tools for data analysis and modeling.
+
+## How to run it locally using docker:
+- Clone this repository.
+- Run the MySQL docker image
+```bash 
+sudo docker run -p <any port (NOT 3306)>:3306 --name findhome_mysql -e MYSQL_ROOT_PASSWORD=<password> -e MYSQL_DATABASE=find_home -d mysql:latest
+```
+- Create the database schema.
+- - Install Migratify globally 
+```bash
+npm install -g migratify
+```
+- - Open the file <code>/migratins/config.json</code> file and set the <code>dbPort</code> variable to the port you have set for MySQL.
+- - Run 
+```bash
+migratify clear
+```
+- - Run
+```bash
+migratfy migrate
+```
+- Pull the docker image of this project 
+
+```bash 
+sudo docker pull shahriarkabir/findhome:latest
+```
+
+- Run the image
+```bash 
+docker run -e  dbPassword=<your MySQL password> -p <port number>:4000 findhome:latest
+```

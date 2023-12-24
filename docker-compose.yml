@@ -1,0 +1,13 @@
+version: '3'
+services:
+  your_service:
+    image: findhome
+    environment:
+      - jwtSecretAdmin="fgewgwg"
+      - jwtSecretCompany="qggq"
+      - jwtSecretUser="gfgr re"
+      - dbPort=3306
+      - dbName=find_home
+      - dbUser="root"
+      - dbHost="localhost"
+      # Add more environment variables as needed

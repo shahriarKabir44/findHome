@@ -2,8 +2,13 @@ const express = require('express')
 const cluster = require('cluster');
 const totalCPUs = require('os').cpus().length;
 const { initConnection } = require('./utils/db');
-const fs = require('fs');
-require('dotenv').config({ path: `${__dirname}/.env.dev` })
+
+const commands = process.argv.filter((item, index) => index > 1)
+
+if (commands[0] == 'dev') {
+    require('dotenv').config({ path: `${__dirname}/.env.dev` })
+
+}
 
 if (cluster.isMaster) {
     for (let i = 0; i < totalCPUs; i++) {
