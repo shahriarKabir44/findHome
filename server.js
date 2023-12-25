@@ -26,9 +26,10 @@ if (cluster.isMaster) {
 
 function startExpress() {
 
+    let app = express()
     initConnection(process.env)
 
-    let app = express()
+
     app.use(express.json())
     app.use(require('cors')())
     app.use(express.static('public'))
@@ -40,7 +41,9 @@ function startExpress() {
     app.use('/offer', require('./routers/Offer.router'))
     app.use('/transaction', require('./routers/Transaction.router'))
     app.use('/', require('./controllers/Home.Controller'))
-
+    app.get('/test', (req, res) => {
+        res.send({ data: 3 })
+    })
     app.listen(process.env.PORT || 4000)
 
 }

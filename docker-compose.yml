@@ -1,13 +1,43 @@
-version: '3'
+version: '3.8'
 services:
-  your_service:
-    image: findhome
+  findhome_db:
+    image: mysql:latest
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "--silent"
+        ]
+      interval: 10s
+      timeout: 20s
+      retries: 50
     environment:
-      - jwtSecretAdmin="fgewgwg"
-      - jwtSecretCompany="qggq"
-      - jwtSecretUser="gfgr re"
+      - MYSQL_ROOT_PASSWORD=Abcd1234.
+      - MYSQL_DATABASE=find_home
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=Abcd1234.
+    ports:
+      - "3300:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+  web:
+    image: shahriarkabir/findhome
+    environment:
+      - jwtSecretAdmin=fgewgwg
+      - jwtSecretCompany=qggq
+      - jwtSecretUser=gfgr re
       - dbPort=3306
       - dbName=find_home
-      - dbUser="root"
-      - dbHost="localhost"
-      # Add more environment variables as needed
+      - dbUser=root
+      - dbPassword=Abcd1234.
+      - dbHost=findhome_db
+    ports:
+      - "4000:4000"
+    depends_on:
+      - findhome_db
+volumes:
+  mysql-data:

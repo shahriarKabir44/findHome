@@ -1,6 +1,5 @@
 async function render() {
 
-
     let { user } = await __fetch('user/isAuthorized')
 
 
