@@ -30,10 +30,10 @@ https://github.com/shahriarKabir44/find_home_ML_server
 - Clone this repository.
 - Run the MySQL docker image
 ```bash 
-sudo docker run -p <any port (NOT 3306)>:3306 --name findhome_mysql -e MYSQL_ROOT_PASSWORD=<password> -e MYSQL_DATABASE=find_home -d mysql:latest
+sudo docker run -p  3300:3306 --name findhome_mysql -e MYSQL_ROOT_PASSWORD=<password> -e MYSQL_DATABASE=find_home -d mysql:latest
 ```
 - Create the database schema.
-- - Install Migratify globally 
+- - Install Migratify globally (if not installed)
 ```bash
 npm install -g migratify
 ```
@@ -50,15 +50,15 @@ migratify create-db
 ```bash
 migratfy migrate
 ```
-- Pull the docker image of this project 
+- Now stop the MySQL image.
 
 ```bash 
-sudo docker pull shahriarkabir/findhome:latest
+sudo docker stop findhome_mysql
 ```
-
-- Run the image
+- Open the docker-compose.yml file and put your database password
+- Run the project
 ```bash 
-docker run -e  dbPassword=<your MySQL password> -p <port number>:4000 findhome:latest
+sudo docker-compose up
 ```
 
 
