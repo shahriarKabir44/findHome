@@ -22,46 +22,17 @@ The project is built with the following technologies:
 - **Python**: A high-level programming language that supports multiple paradigms, such as object-oriented, imperative, functional, and procedural.
 - **scikit-learn**: A machine learning library for Python that provides tools for data analysis and modeling.
 
-## ML Server:
+## ML Server
+
 The Machine learning server repository is available in this link:
-https://github.com/shahriarKabir44/find_home_ML_server
+<https://github.com/shahriarKabir44/find_home_ML_server>
 
-## How to run it locally using docker:
+## How to run it locally using docker
+
 - Clone this repository.
-- Run the MySQL docker image
-```bash 
-sudo docker run -p  3300:3306 --name findhome_mysql -e MYSQL_ROOT_PASSWORD=<password>  -d mysql:latest
-```
-- Create the database schema.
-- - Install Migratify globally and locally (if not installed)
-```bash
-npm install -g migratify
-```
-```bash
-npm install  migratify
-```
-- - Run the following command to delete log files if exists
-```bash
-migratify clear
-```
-- - Run the following command to create the database.
-```
-migratify create-db
-```
-
-- - Run the following command to create the schema.
-```bash
-migratfy migrate
-```
-- Now stop the MySQL image.
-
-```bash 
-sudo docker stop findhome_mysql
-```
-- Open the docker-compose.yml file and put your database password
+- Open a terminal in the same directory as docker-compose.yml file.
 - Run the project
-```bash 
+
+```bash
 sudo docker-compose up
 ```
-
-

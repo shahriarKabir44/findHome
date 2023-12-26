@@ -13,17 +13,16 @@ services:
           "--silent"
         ]
       interval: 10s
-      timeout: 20s
-      retries: 50
+      timeout: 300s
+      retries: 1000
     environment:
-      - MYSQL_ROOT_PASSWORD=<MySQL password>
+      - MYSQL_ROOT_PASSWORD=RandomPass1.
       - MYSQL_DATABASE=find_home
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=<MySQL password>
+      - MYSQL_PASSWORD=RandomPass1.
     ports:
       - "3300:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - ./migrations/find_home.sql:/docker-entrypoint-initdb.d/find_home.sql
   web:
     image: shahriarkabir/findhome
     environment:
@@ -33,7 +32,7 @@ services:
       - dbPort=3306
       - dbName=find_home
       - dbUser=root
-      - dbPassword=<MySQL password>
+      - dbPassword=RandomPass1.
       - dbHost=findhome_db
     ports:
       - "4000:4000"
